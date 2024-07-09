@@ -30,6 +30,7 @@ batalha_naval/
        ├── design.md 
 ├── CMakeLists.txt 
 └── Makefile
+
 Instruções de Instalação:
 Passo 1: Instalar Ferramentas Básicas
 1- Instalar um compilador C++, no caso do LINUX, pode ser instalado pelo comando “sudo apt-get install g++”.
