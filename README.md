@@ -59,7 +59,7 @@ cmake --build .
 Passo 5: Executar o Projeto
 1-Após compilado, execute o projeto usando:
 ./BatalhaNaval
-2-Instalar extensões com:
+2-Instalar extensões como:
 C/C++
 CMake Tools
 3-Configurar a Construção criando um arquivo .vscode/tasks.json.
