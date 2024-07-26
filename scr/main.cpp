@@ -11,4 +11,3 @@ int main(){
 
     a.printarCursor();
 }
-
