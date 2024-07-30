@@ -61,15 +61,20 @@ void::cursor::apagarCursor(int x, int y){ //Posiciona um espaço em branco logo 
     gotoxy(x,y) ; cout << " ";
 
 }
-void::cursor::moverCursor(int &x, int &y){ //Usa da lib conio.h para mover o cursor no console
+/*
+1) Usa da lib conio.h para mover o cursor no console.
+2) Para que o cursos não apague o Tabuleiro, as variáveis x e y devem ser aumentadas ou diminuidas em 2 unidades.
+3) Adicionei limites aos movimentos do cursor, agora ele não pode sair do Tabuleiro.
+*/
+void::cursor::moverCursor(int &x, int &y){
 
     if(kbhit()){
         cursor::apagarCursor(x,y);
         char tecla = getch();
-        if(tecla == 'a') x--;
-        if(tecla == 'd') x++;
-        if(tecla == 'w') y--;
-        if(tecla == 's') y++;
+        if(tecla == 'a' && x>2) x=x-2;
+        if(tecla == 'd' && x<20) x=x+2;
+        if(tecla == 'w' && y>3) y=y-2;
+        if(tecla == 's' && y<21) y=y+2;
         cursor::printarCursor(x,y);
     }
 }
