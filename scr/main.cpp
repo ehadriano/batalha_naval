@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//Testa movimentação na Vertical
+//Testa movimentação na Horizontal
 int main(){
 
     cursor a;
@@ -21,7 +21,7 @@ int main(){
     //.printar_Carrier(2,10,1);//Por algum motivo, A0 tem coordenada (2,10), não (2,28) como esperado
 
     while(true){
-        b.mover_Carrier(q2,w2,0);
+        b.mover_Carrier(q2,w2,1);
     }
 
 return 0;
