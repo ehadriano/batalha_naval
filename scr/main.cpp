@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//Teste do Carrier na Vertical c==0
+//Teste do Carrier na Horizontal c==1
 int main(){
 
     cursor a;
@@ -18,7 +18,7 @@ int main(){
     gotoxy(0,25);
     a.printarTabuleiro();
 
-    b.printar_Carrier(2,10,0);//Por algum motivo, A0 tem coordenada (2,10), não (2,28) como esperado
+    b.printar_Carrier(2,10,1);//Por algum motivo, A0 tem coordenada (2,10), não (2,28) como esperado
 
     while(true){
         a.moverCursor(q1,w1);
