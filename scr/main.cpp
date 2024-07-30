@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main(){ //Testa limites na movimentação para Carrier Horizontal
+int main(){ //Testa limites na movimentação para Carrier Vertical
 
     cursor a;
     jogador b;
@@ -18,7 +18,7 @@ int main(){ //Testa limites na movimentação para Carrier Horizontal
     a.printarTabuleiro();
 
     while(true){
-        b.mover_Carrier(q2,w2,1);
+        b.mover_Carrier(q2,w2,0);
     }
 
 return 0;
