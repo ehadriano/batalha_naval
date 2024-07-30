@@ -6,8 +6,9 @@
 using namespace std;
 
 int main(){
+
     cursor a;
-    int q1=5, w1=5;
+    int q1=2, w1=3;
 
     a.printarTabuleiro();
 
