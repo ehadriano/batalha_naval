@@ -5,8 +5,17 @@
 
 using namespace std;
 
+/*TESTE: essa função me permite comandar a posição inicial do cursor, vou testar inicialmente nas coordenadas 5,5*/
+void gotoxy(int x, int y){ //
+HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+ COORD dwPos;
+ dwPos.X = x;
+ dwPos.Y = y;
+ SetConsoleCursorPosition(hcon, dwPos);
+}
+
 void cursor::printarCursor(){
 
-    cout << "O";
+    gotoxy(5,5); cout << "O";
 
 }
