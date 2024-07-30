@@ -26,14 +26,25 @@ void jogador::apagar_Carrier(int x, int y, int c){ //Mesma lógica da função j
         cout << " ";
     }
 }
+/*Adiciona limites correspondentes ao Tabuleiro na movimentação*/
 void jogador::mover_Carrier(int &x, int &y, int c){
     if(kbhit()){
         jogador::apagar_Carrier(x,y,c);
         char tecla = getch();
         if(tecla == 'a' && x>2) x=x-2;
-        if(tecla == 'd' && x<20) x=x+2;
-        if(tecla == 'w' && y>3) y=y-2;
-        if(tecla == 's' && y<21) y=y+2;
+        if(c==0){
+            if(tecla == 'd' && x<20) x=x+2;
+        }
+        if(c==1){
+            if(tecla == 'd' && x<14) x=x+2;
+        }
+        if(tecla == 'w' && y>10) y=y-2;
+        if(c==0){
+            if(tecla == 's' && y<21) y=y+2;
+        }
+        if(c==1){
+            if(tecla == 's' && y<28) y=y+2;
+        }
         jogador::printar_Carrier(x,y,c);
     }
 }
