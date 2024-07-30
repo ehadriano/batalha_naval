@@ -7,6 +7,7 @@ class cursor{
 
         public:
 
+            void printarTabuleiro();
             void printarCursor(int, int);
             void apagarCursor(int, int);
             void moverCursor(int &, int&);

@@ -9,6 +9,7 @@ int main(){
     cursor a;
     int q1=5, w1=5;
 
+    a.printarTabuleiro();
 
     while(true){
         a.moverCursor(q1,w1);
