@@ -1,13 +1,20 @@
 #include <iostream>
-#include <pthread.h> 
-#include <termios.h> 
+#include <windows.h>
+#include <conio.h>
 #include "../include/cursor.hpp"
 
 using namespace std;
 
 int main(){
-
     cursor a;
 
-    a.printarCursor();
+    a.printarCursor(10,10);
+}
+
+int main(){
+    cursor a;
+
+    while(true){
+        a.moverCursor(5,5);
+    }
 }

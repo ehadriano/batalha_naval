@@ -14,8 +14,19 @@ HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
  SetConsoleCursorPosition(hcon, dwPos);
 }
 
-void cursor::printarCursor(){
+void::cursor::printarCursor(int x, int y){
 
-    gotoxy(5,5); cout << "O";
+    gotoxy(x,y);cout << "0";
 
+}
+void::cursor::moverCursor(int x, int y){ //Usa da lib conio.h para mover o cursor no console
+
+    if(kbhit()){
+        char tecla = getch();
+        if(tecla == 'a') x--;
+        if(tecla == 'd') x++;
+        if(tecla == 'w') y--;
+        if(tecla == 's') y++;
+        cursor::printarCursor(x,y);
+    }
 }
