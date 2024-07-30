@@ -5,7 +5,7 @@
 
 using namespace std;
 
-/*TESTE: essa função me permite comandar a posição inicial do cursor, vou testar inicialmente nas coordenadas 5,5*/
+//Criar classe auxiliar futuramente!!
 void gotoxy(int x, int y){ //
 HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
  COORD dwPos;
@@ -14,14 +14,21 @@ HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
  SetConsoleCursorPosition(hcon, dwPos);
 }
 
+//cursor.cpp
 void::cursor::printarCursor(int x, int y){
 
     gotoxy(x,y);cout << "0";
 
 }
-void::cursor::moverCursor(int x, int y){ //Usa da lib conio.h para mover o cursor no console
+void::cursor::apagarCursor(int x, int y){ //Posiciona um espaço em branco logo atrás da posição atual do cursor
+
+    gotoxy(x,y) ; cout << " ";
+
+}
+void::cursor::moverCursor(int &x, int &y){ //Usa da lib conio.h para mover o cursor no console
 
     if(kbhit()){
+        cursor::apagarCursor(x,y);
         char tecla = getch();
         if(tecla == 'a') x--;
         if(tecla == 'd') x++;

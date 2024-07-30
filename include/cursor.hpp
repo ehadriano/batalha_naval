@@ -8,8 +8,9 @@ class cursor{
         public:
 
             void printarCursor(int, int);
-            void moverCursor(int, int);
+            void apagarCursor(int, int);
+            void moverCursor(int &, int&);
 
-};};
+};
 
 #endif // CURSOR_HPP

@@ -7,14 +7,12 @@ using namespace std;
 
 int main(){
     cursor a;
+    int q1=5, w1=5;
 
-    a.printarCursor(10,10);
-}
-
-int main(){
-    cursor a;
 
     while(true){
-        a.moverCursor(5,5);
+        a.moverCursor(q1,w1);
     }
+
+return 0;
 }
