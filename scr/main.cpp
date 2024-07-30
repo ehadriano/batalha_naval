@@ -10,6 +10,9 @@ int main(){
     cursor a;
     int q1=2, w1=3;
 
+    gotoxy(0,0);
+    a.printarTabuleiro();
+    gotoxy(0,25);
     a.printarTabuleiro();
 
     while(true){
