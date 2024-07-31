@@ -7,7 +7,7 @@ struct coord{ //Coordenadas
 
 };
 
-struct peca{ //Era para ser 'Peça'
+struct peca{ //Peça
 
     coord original;
     coord perifericos [3];
@@ -15,11 +15,13 @@ struct peca{ //Era para ser 'Peça'
 
 };
 
-class jogador{ //Tentativa de tornar o código menor
+class jogador{ 
 
     public:
 
         void printar(peca &);
+        void rotacionar(peca &); //Função responsável pela rotação da peça
+        coord rotacionar(coord &); //Embora tenha um nome parecido com void rotaciona, é outra função completamente diferente
 
 };
 
