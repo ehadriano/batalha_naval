@@ -1,11 +1,26 @@
 #ifndef JOGADOR_HPP
 #define JOGADOR_HPP
 
-class jogador {
-public:
-    void printar_Carrier(int x, int y, int z);
-    void apagar_Carrier(int x, int y, int z);
-    void mover_Carrier(int &x, int &y, int z);
+struct coord{ //Coordenadas
+
+    int x, y;
+
+};
+
+struct peca{ //Era para ser 'Peça'
+
+    coord original;
+    coord perifericos [3];
+    char D;
+
+};
+
+class jogador{ //Tentativa de tornar o código menor
+
+    public:
+
+        void printar(peca &);
+
 };
 
 #endif // JOGADOR_HPP
