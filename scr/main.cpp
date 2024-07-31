@@ -9,19 +9,22 @@ int main(){
 
     cursor a;
     jogador b;
-    peca c = { {2,10}, { {2,0}, {4,0}, {6,0} }, 'P' }; //original, perifericos, char
-    peca v = { {2,10}, { {2,0}, {4,0}, {6,0} }, 'P' };
 
-    gotoxy(0,0);
-    a.printarTabuleiro();
+    peca S;
+    int r = 0; //r=0 Carrier, r=1 Tanker, r=2 Destroyer, r=3 Submarine
+
+    b.selecionar(S,r);
+
+    //gotoxy(0,0);
+    //a.printarTabuleiro();
+
+    b.printar(S);
     gotoxy(0,25);
     a.printarTabuleiro();
 
-    b.printar(v);
+    //b.rotacionar(c);
 
-    b.rotacionar(c);
-
-    b.printar(c);
+    //b.printar(c);
 
 return 0;
 }
