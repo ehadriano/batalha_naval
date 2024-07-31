@@ -6,22 +6,22 @@ struct coord{ //Coordenadas
     int x, y;
 
 };
-
 struct peca{ //Peça
 
     coord original;
     coord perifericos [3];
     char D;
+    coord posicao(int n); //Posição
 
 };
-
-class jogador{ 
+class jogador{ //Tentativa de tornar o código menor
 
     public:
 
         void printar(peca &);
-        void rotacionar(peca &); //Função responsável pela rotação da peça
-        coord rotacionar(coord &); //Embora tenha um nome parecido com void rotaciona, é outra função completamente diferente
+        void rotacionar(peca &);
+        coord rotacionar(coord &);
+        void selecionar(peca &, int);
 
 };
 
