@@ -59,13 +59,28 @@ void jogador::selecionar(peca &P, int r){ //Inicia todos e cada um dos Navios
 }
 void jogador::mover(peca &P){ //Lógica parecida com a já implementada em cursor::moverCursor
      if(kbhit()){
-
+        peca copia = P;
         char tecla = getch();
         if(tecla == 'a') P.original.x -=2;
         if(tecla == 'd') P.original.x +=2;
         if(tecla == 'w') P.original.y -=2;
         if(tecla == 's') P.original.y +=2;
 
+        if(jogador::colisao(P)){
+            P = copia;
+        }
+
         jogador::printar(P);
         }
+}
+bool jogador::colisao(peca &P){ //Lógica semelhante a função jogador::printar
+    for(int i=0; i<4; i++){
+        coord c = P.posicao(i);
+
+        if(c.x < 2 || c.x > 20) return true;
+
+        if(c.y < 2 || c.y > 20) return true;
+    }
+
+return false;
 }
