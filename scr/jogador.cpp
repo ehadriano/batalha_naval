@@ -150,6 +150,8 @@ bool jogador::colisao(peca &P) {
 
         if (c.x < 2 || c.x > 20) return true;
         if (c.y < 2 || c.y > 20) return true;
+
+        if(ju[c.y][c.x] == 'C' || ju[c.y][c.x] == 'T' || ju[c.y][c.x] == 'D' || ju[c.y][c.x] == 'S' ) return true;
     }
-    return false;
+return false;
 }
