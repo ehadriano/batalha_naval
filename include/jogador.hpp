@@ -23,6 +23,7 @@ class jogador{ //Tentativa de tornar o código menor
         coord rotacionar(coord &);
         void selecionar(peca &, int);
         void mover(peca &);
+        bool colisao(peca &); //Permite que a peça apenas se mova dentro do Tabuleiro
 
 };
 
