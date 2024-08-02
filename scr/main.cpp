@@ -18,9 +18,9 @@ int main() {
     gotoxy(0, 0);
     a.desenharMapaju();
     while (true) {
-        a.mover(S);
         gotoxy(0, 0);
         a.desenharMapaju();
+        a.mover(S,r);
     }
 
     return 0;
