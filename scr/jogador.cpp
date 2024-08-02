@@ -75,6 +75,10 @@ void jogador::mover(peca &P) {
         if(tecla == 'w') P.original.y -=2;
         if(tecla == 's') P.original.y +=2;
 
+        if(tecla == 'c'){
+            jogador::rotacionar(P);
+        }
+
         // Verifica se a nova posição causa uma colisão
         if (jogador::colisao(P)) {
             P = copia; // Reverte para a posição anterior em caso de colisão
