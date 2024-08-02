@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-//jogador.cpp
 //Modelo de tabuleiro
 char ma[22][22] =   {{' ',' ','A',' ','B',' ','C',' ','D',' ','E',' ','F',' ','G',' ','H',' ','I',' ','J',' '},
                     {' ',' ','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_',' '},
@@ -69,10 +67,19 @@ coord peca::posicao(int n){ //Posiciona um navio no tabuleiro
     }
 return ret;
 }
-void jogador::printar(peca &P){
-    for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
-        coord c = P.posicao(i);
-        ju[c.y][c.x] = P.D; // Marca a posição do navio com o caractere que representa o tipo do navio
+void jogador::printar(peca &P, int r){
+
+    if(r == 1){
+       for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
+            coord c = P.posicao(i);
+            ju[c.y][c.x] = P.d; // Marca a posição do navio com o caractere que representa o tipo do navio
+    }
+    }
+    else{
+        for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
+            coord c = P.posicao(i);
+            ju[c.y][c.x] = P.D; // Marca a posição do navio com o caractere que representa o tipo do navio
+        }
     }
 }
 void jogador::apagar(peca &P){ //Lógica identica ao método jogador::printar
@@ -106,7 +113,7 @@ void jogador::selecionar(peca &P, int r){ //Inicia todos e cada um dos Navios
             P.perifericos[i] = peris[r][i];
     }
 }
-void jogador::mover(peca &P) {
+void jogador::mover(peca &P, int &r) {
     if (kbhit()) {
         peca copia = P;
         char tecla = getch();
@@ -127,7 +134,13 @@ void jogador::mover(peca &P) {
         } else {
             // Atualiza o tabuleiro apenas se o movimento for válido
             jogador::apagar(copia);
-            jogador::printar(P);
+            jogador::printar(P,1);
+
+            if(tecla == 'x'){
+                jogador::printar(P,2);
+                r++;
+                jogador::selecionar(P,r);
+            }
         }
     }
 }
