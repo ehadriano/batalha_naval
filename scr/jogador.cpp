@@ -2,7 +2,51 @@
 #include <windows.h>
 #include <conio.h>
 #include "cursor.hpp"
+
 using namespace std;
+
+
+//jogador.cpp
+//Modelo de tabuleiro
+char ma[22][22] =   {{' ',' ','A',' ','B',' ','C',' ','D',' ','E',' ','F',' ','G',' ','H',' ','I',' ','J',' '},
+                    {' ',' ','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_',' '},
+                    {'0','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'1','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'2','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'3','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'4','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'5','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'6','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'7','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'8','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
+                    {'9','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
+                    {' ',' ','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-',' '},};
+
+void jogador::passarTabuleiro(){
+    for(int i = 0; i < 22; i++){
+        cout << endl;
+        for(int j = 0; j < 22; j++){
+            ju[i][j]=ma[i][j];
+        }
+    }
+}
+void jogador::desenharMapaju(){
+    for(int i = 0; i < 22; i++){
+        cout << endl;
+        for(int j = 0; j < 22; j++){
+            cout << ju[i][j];
+        }
+    }
+}
 /*Número de barcos colocados, independe do tipo e tamanho de cada um.
 Ex: Carrier   5casas -> {{2,0}, {4,0}, {6,0}, {8,0}}
     Tanker    4casas -> {{2,0}, {4,0}, {6,0}, {   }}
@@ -26,13 +70,17 @@ void jogador::printar(peca &P){
     for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
         coord c = P.posicao(i);
         ma[c.y][c.x] = P.D; // Marca a posição do navio com o caractere que representa o tipo do navio
+        ju[c.y][c.x] = P.D; // Marca a posição do navio com o caractere que representa o tipo do navio
     }
 }
 void jogador::apagar(peca &P){ //Lógica identica ao método jogador::printar
+
     for(int i=0; i<4; i++){
         coord c = P.posicao(i);
         ma[c.y][c.x] = ' '; // Substitui a posição do navio por um espaço em branco
+        ju[c.y][c.x] = ' '; // Substitui a posição do navio por um espaço em branco
     }
+
 }
 coord jogador::rotacionar(coord &c){
     coord ret ={c.y,c.x};
@@ -60,17 +108,24 @@ void jogador::mover(peca &P) {
         if(tecla == 'd') P.original.x +=2;
         if(tecla == 'w') P.original.y -=2;
         if(tecla == 's') P.original.y +=2;
-
         if(tecla == 'c'){
             jogador::rotacionar(P);
         }
-
         // Verifica se a nova posição causa uma colisão
         if (jogador::colisao(P)) {
             P = copia; // Reverte para a posição anterior em caso de colisão
-@@ -93,4 +97,4 @@ bool jogador::colisao(peca &P) {
+        } else {
+            // Atualiza o tabuleiro apenas se o movimento for válido
+            jogador::apagar(copia);
+            jogador::printar(P);
+        }
+    }
+}
+bool jogador::colisao(peca &P) {
+    for (int i = 0; i < 4; i++) {
+        coord c = P.posicao(i);
+        if (c.x < 2 || c.x > 20) return true;
         if (c.y < 2 || c.y > 20) return true;
     }
     return false;
-}
 }
