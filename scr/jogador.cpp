@@ -2,11 +2,7 @@
 #include <windows.h>
 #include <conio.h>
 #include "cursor.hpp"
-
 using namespace std;
-
-
-//jogador.cpp
 //Modelo de tabuleiro
 char ma[22][22] =   {{' ',' ','A',' ','B',' ','C',' ','D',' ','E',' ','F',' ','G',' ','H',' ','I',' ','J',' '},
                     {' ',' ','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_','_',' '},
@@ -65,12 +61,7 @@ coord peca::posicao(int n){ //Posiciona um navio no tabuleiro
     }
 return ret;
 }
-void jogador::printar(peca &P){
-    for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
-        coord c = P.posicao(i);
-        ju[c.y][c.x] = P.D; // Marca a posição do navio com o caractere que representa o tipo do navio
 void jogador::printar(peca &P, int r){
-
     if(r == 1){
        for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
             coord c = P.posicao(i);
@@ -107,7 +98,6 @@ void jogador::selecionar(peca &P, int r){ //Inicia todos e cada um dos Navios
             P.perifericos[i] = peris[r][i];
     }
 }
-void jogador::mover(peca &P) {
 void jogador::mover(peca &P, int &r) {
     if (kbhit()) {
         peca copia = P;
@@ -126,9 +116,7 @@ void jogador::mover(peca &P, int &r) {
         } else {
             // Atualiza o tabuleiro apenas se o movimento for válido
             jogador::apagar(copia);
-            jogador::printar(P);
             jogador::printar(P,1);
-
             if(tecla == 'x'){
                 jogador::printar(P,2);
                 r++;
@@ -140,8 +128,12 @@ void jogador::mover(peca &P, int &r) {
 bool jogador::colisao(peca &P) {
     for (int i = 0; i < 4; i++) {
         coord c = P.posicao(i);
+
         if (c.x < 2 || c.x > 20) return true;
         if (c.y < 2 || c.y > 20) return true;
+
+        if(ju[c.y][c.x] == 'C' || ju[c.y][c.x] == 'T' || ju[c.y][c.x] == 'D' || ju[c.y][c.x] == 'S' ) return true;
     }
     return false;
+return false;
 }
