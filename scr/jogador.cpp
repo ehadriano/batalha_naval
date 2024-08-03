@@ -30,7 +30,6 @@ char ma[22][22] =   {{' ',' ','A',' ','B',' ','C',' ','D',' ','E',' ','F',' ','G
                     {' ','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|','-','|'},
                     {'9','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
                     {' ',' ','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-',' '},};
-
 void jogador::passarTabuleiro(){
     for(int i = 0; i < 22; i++){
         cout << endl;
@@ -69,18 +68,27 @@ return ret;
 void jogador::printar(peca &P){
     for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
         coord c = P.posicao(i);
-        ma[c.y][c.x] = P.D; // Marca a posição do navio com o caractere que representa o tipo do navio
         ju[c.y][c.x] = P.D; // Marca a posição do navio com o caractere que representa o tipo do navio
+void jogador::printar(peca &P, int r){
+
+    if(r == 1){
+       for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
+            coord c = P.posicao(i);
+            ju[c.y][c.x] = P.d; // Marca a posição do navio com o caractere que representa o tipo do navio
+    }
+    }
+    else{
+        for(int i=0; i<4; i++){ //Controla o número de casas que um navio pode ocupar
+            coord c = P.posicao(i);
+            ju[c.y][c.x] = P.D; // Marca a posição do navio com o caractere que representa o tipo do navio
+        }
     }
 }
 void jogador::apagar(peca &P){ //Lógica identica ao método jogador::printar
-
     for(int i=0; i<4; i++){
         coord c = P.posicao(i);
-        ma[c.y][c.x] = ' '; // Substitui a posição do navio por um espaço em branco
         ju[c.y][c.x] = ' '; // Substitui a posição do navio por um espaço em branco
     }
-
 }
 coord jogador::rotacionar(coord &c){
     coord ret ={c.y,c.x};
@@ -100,6 +108,7 @@ void jogador::selecionar(peca &P, int r){ //Inicia todos e cada um dos Navios
     }
 }
 void jogador::mover(peca &P) {
+void jogador::mover(peca &P, int &r) {
     if (kbhit()) {
         peca copia = P;
         char tecla = getch();
@@ -118,6 +127,13 @@ void jogador::mover(peca &P) {
             // Atualiza o tabuleiro apenas se o movimento for válido
             jogador::apagar(copia);
             jogador::printar(P);
+            jogador::printar(P,1);
+
+            if(tecla == 'x'){
+                jogador::printar(P,2);
+                r++;
+                jogador::selecionar(P,r);
+            }
         }
     }
 }
