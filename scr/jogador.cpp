@@ -6,6 +6,7 @@
 
 #include "../include/jogador.hpp"
 
+
 using namespace std;
 
 char ma[22][22] = {
@@ -32,6 +33,7 @@ char ma[22][22] = {
     {'9','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|',' ','|'},
     {' ',' ','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-',' '}
 };
+
 void jogador::passarTabuleiro(){
     for(int i = 0; i < 22; i++){
         cout << endl;
@@ -50,6 +52,7 @@ void jogador::desenharMapaju(){
         }
     }
 }
+
 coord peris[5][3] = {{{2,0}, {4,0}, {6,0}},  //Carrier
                      {{2,0}, {4,0}, {   }},  //Tanker
                      {{2,0}, {4,0}, {   }},  //Destroyer
@@ -62,9 +65,34 @@ coord peca::posicao(int n){ //Posiciona um navio no tabuleiro
         ret.x += perifericos[n-1].x;
         ret.y += perifericos[n-1].y;
     }
-    return ret;
+coord peca::posicao(int n){ //Posiciona um navio no tabuleiro
+    coord ret = {original.x, original.y};
+    if(n != 0){
+        ret.x += perifericos[n-1].x;
+        ret.y += perifericos[n-1].y;
+    }
+coord peca::posicao(int n){ //Posiciona um navio no tabuleiro
+    coord ret = {original.x, original.y};
+    if(n != 0){
+        ret.x += perifericos[n-1].x;
+        ret.y += perifericos[n-1].y;
+    }
+coord peca::posicao(int n){ //Posiciona um navio no tabuleiro
+    coord ret = {original.x, original.y};
+    if(n != 0){
+        ret.x += perifericos[n-1].x;
+        ret.y += perifericos[n-1].y;
+    }
+coord peca::posicao(int n){ //Posiciona um navio no tabuleiro
+    coord ret = {original.x, original.y};
+    if(n != 0){
+        ret.x += perifericos[n-1].x;
+        ret.y += perifericos[n-1].y;
+    }
+return ret;
 }
 void jogador::printar(peca &P, int r){
+
     if(r == 1){
         for(int i = 0; i < 4; i++){ //Controla o número de casas que um navio pode ocupar
             coord c = P.posicao(i);
@@ -78,13 +106,15 @@ void jogador::apagar(peca &P){ //Lógica identica ao método jogador::printar
         coord c = P.posicao(i);
         ju[c.y][c.x] = ' '; // Substitui a posição do navio por um espaço em branco
     }
+
 }
 coord jogador::rotacionar(coord &c){
-    coord ret = {c.y, c.x};
+
+    coord ret ={c.y,c.x};
     return ret;
 }
 void jogador::rotacionar(peca &P){
-    for(int i = 0; i < 3; i++){
+    for(int i=0; i<3; i++){
         P.perifericos[i] = jogador::rotacionar(P.perifericos[i]);
     }
 }
@@ -108,7 +138,6 @@ void jogador::mover(peca &P, int &r) {
         if(tecla == 'c'){
             jogador::rotacionar(P);
         }
-
         // Verifica se a nova posição causa uma colisão
         if (jogador::colisao(P)) {
         if (jogador::colisao(P,1)) {
@@ -118,7 +147,7 @@ void jogador::mover(peca &P, int &r) {
             jogador::apagar(copia);
             jogador::printar(P, 1);
             if(tecla == 'x'){
-                jogador::printar(P, 2);
+                jogador::printar(P,2);
                 r++;
                 jogador::selecionaMapa(P, r);
                 jogador::selecionaMapa(P, r, 1);
@@ -130,7 +159,6 @@ bool jogador::colisao(peca &P) {
 bool jogador::colisao(peca &P, int q){
     for (int i = 0; i < 4; i++) {
         coord c = P.posicao(i);
-
         if (c.x < 2 || c.x > 20) return true;
         if (c.y < 2 || c.y > 20) return true;
 
@@ -142,7 +170,6 @@ bool jogador::colisao(peca &P, int q){
             if(ju[c.y][c.x] == 'X' || ju[c.y][c.x] == 'O') return true;
         }
     }
-    return false;
 }
 int jogador::obterxy(){
     while(true) {

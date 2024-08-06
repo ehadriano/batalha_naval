@@ -1,7 +1,9 @@
 #ifndef INIMIGO_HPP
 #define INIMIGO_HPP
 #include <windows.h>
+
 #include "jogador.hpp"
+
 //inimigo.hpp
 void gotoxy(int x, int y){
 HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -35,6 +37,7 @@ public:
     int obterRot();
 class inimigo : public jogador{
     public:
+
         void desenharMapaen();
         void printar(peca &, int);
         void apagar(peca &);
@@ -43,6 +46,7 @@ class inimigo : public jogador{
         void selecionaMapa(peca &, int);
         void inicializarNavios(peca &);
         int obterRot();
+
 };
 
 #endif // INIMIGO_HPP
