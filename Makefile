@@ -6,7 +6,6 @@ CXXFLAGS = -Iinclude -Wall -std=c++11
 SRCDIR = scr
 OBJDIR = obj
 BINDIR = bin
-SCRIPTDIR = scripts
 
 # Arquivos
 SOURCES = $(wildcard $(SRCDIR)/*.cpp)
@@ -14,7 +13,7 @@ OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
 TARGET = $(BINDIR)/main.exe
 
 # Regras
-all: $(TARGET) create_shortcut
+all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	@if not exist $(BINDIR) mkdir $(BINDIR)
@@ -24,12 +23,9 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@if not exist $(OBJDIR) mkdir $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-create_shortcut:
-	@cd $(SCRIPTDIR) && call create_shortcut.bat
-
 clean:
-	@if exist $(OBJDIR) del /Q $(OBJDIR)\*.o
-	@if exist $(BINDIR) del /Q $(TARGET)
+	@if exist $(OBJDIR) rmdir /S /Q $(OBJDIR)
+	@if exist $(BINDIR) rmdir /S /Q $(BINDIR)
 	@if exist Batalha_Naval.lnk del /Q Batalha_Naval.lnk
 
-.PHONY: all clean create_shortcut
+.PHONY: all clean
