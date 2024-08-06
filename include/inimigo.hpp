@@ -1,52 +1,52 @@
 #ifndef INIMIGO_HPP
 #define INIMIGO_HPP
-#include <windows.h>
 
-#include "jogador.hpp"
+#include "../include/jogador.hpp"
 
-//inimigo.hpp
-void gotoxy(int x, int y){
-HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
- COORD dwPos;
- dwPos.X = x;
- dwPos.Y = y;
- SetConsoleCursorPosition(hcon, dwPos);
-}
-struct coord{ //Coordenadas
-    int x, y;
-};
-struct peca{ //Peça
-    coord original;
-    coord perifericos [3];
-    char D;
-    char d = '*';
-    coord posicao(int n); //Posição
-};
-
-char en[22][22];
-
+// Classe que representa um inimigo no jogo de batalha naval, herda da classe jogador
 class inimigo : public jogador {
+private:
+
+    // Variáveis privadas da classe inimigo
+    int x1, x2, x3, x4;
+    int y1, y2, y3, y4;
+    int c1, c2, c3, c4;
+    int x, y, c;
+    int d;
+    int vidaIN = 0;
+
 public:
-    void desenharMapaen();
-    void printar(peca &p, int r);
-    void apagar(peca &p);
-    void mover(peca &p, int &r);
-    bool colisao(peca &p);
-    void selecionaMapa(peca &p, int r);
-    void inicializarNavios(peca &p);
-    int obterRot();
-class inimigo : public jogador{
-    public:
+    
+    // Retorna a vida atual do inimigo
+    int retornarVidaIN() { return vidaIN; }
+    
+    // Imprime o tabuleiro do inimigo
+    void printarTabuleiro();
 
-        void desenharMapaen();
-        void printar(peca &, int);
-        void apagar(peca &);
-        void mover(peca &, int &, int &);
-        bool colisao(peca &, int);
-        void selecionaMapa(peca &, int);
-        void inicializarNavios(peca &);
-        int obterRot();
+    // Imprime o tabuleiro interno do inimigo
+    void printarTabuleiroIN();
 
+     // Funções para manipular a posição e estado de disparo
+    void printar(int &, int &);
+    void apagar(int &, int &);
+    void mover(int &, int &);
+
+    // Funções para obter coordenadas e direção
+    int obterX(int, int);
+    int obterY(int, int);
+    int obterC();
+
+    // Função para imprimir todos os navios do inimigo
+    void printarNavios();
+
+    // Funções para imprimir navios específicos
+    void printarCARRIER(int, int, int);
+    void printarTANKER(int, int, int);
+    void printarDESTROYER(int, int, int);
+    void printarSUBMARINE(int, int, int);
+
+    // Função para registrar disparo
+    void disparo(int, int);
 };
 
 #endif // INIMIGO_HPP
