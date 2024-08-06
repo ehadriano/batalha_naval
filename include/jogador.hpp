@@ -8,7 +8,7 @@ HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
  dwPos.Y = y;
  SetConsoleCursorPosition(hcon, dwPos);
 }
-char ju[22][22];
+
 struct coord{ //Coordenadas
     int x, y;
 };
@@ -20,11 +20,14 @@ struct peca{ //Peça
     coord posicao(int n); //Posição
 
 };
-char ju[22][22];
-char ju[22][22];
 
-class jogador{ //Tentativa de tornar o código menor
-
+char en[22][22];
+char ju[22][22];
+char en2[22][22];
+class jogador{
+    private:
+        int turno = 0;
+        int turno1;
     public:
         void passarTabuleiro();
         void desenharMapaju();
@@ -37,5 +40,12 @@ class jogador{ //Tentativa de tornar o código menor
         bool colisao(peca &);
         int obterxy();
         void selecionaMapa(peca &, int);
+        void selecionaMapa(peca &, int);
+        void selecionaMapa(peca &, int, int);
+        void disparo(peca &, int);
+        int verificar(peca &);
+        void mudarTurno(peca &, int&, int);
+        void gerenciarIA(peca &, int &, int);
+
 };
 #endif // JOGADOR_HPP

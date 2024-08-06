@@ -1,6 +1,5 @@
 #ifndef INIMIGO_HPP
 #define INIMIGO_HPP
-
 #include <windows.h>
 
 #include "jogador.hpp"
@@ -26,17 +25,6 @@ struct peca{ //Peça
 
 char en[22][22];
 
-class inimigo : public jogador{ 
-
-    public:
-
-        void desenharMapaen();
-        void printar(peca &, int);
-        void apagar( peca &);
-        void mover(peca &, int &);
-        bool colisao(peca &);
-        void selecionaMapa(peca &, int);
-
 class inimigo : public jogador {
 public:
     void desenharMapaen();
@@ -47,6 +35,18 @@ public:
     void selecionaMapa(peca &p, int r);
     void inicializarNavios(peca &p);
     int obterRot();
+class inimigo : public jogador{
+    public:
+
+        void desenharMapaen();
+        void printar(peca &, int);
+        void apagar(peca &);
+        void mover(peca &, int &, int &);
+        bool colisao(peca &, int);
+        void selecionaMapa(peca &, int);
+        void inicializarNavios(peca &);
+        int obterRot();
+
 };
 
 #endif // INIMIGO_HPP
