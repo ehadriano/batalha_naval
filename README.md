@@ -5,7 +5,7 @@ Integrantes: Eduardo H Adriano, Pedro Bicalho de Sousa, Júlia Menezes, Gabriela
 
 **Visão Geral da Solução: Visando entretenimento, desenvolveu-se um jogo de Batalha Naval. O tabuleiro do jogador poderá ser montado de forma arbitrária.
 
-======================================================================================================================================================================================
+======================================================================================================================
 
 **Estrutura Geral do Projeto: 
 batalha_naval/ 
@@ -44,7 +44,7 @@ batalha_naval/
 ├── Makefile
 └── README.md
 
-======================================================================================================================================================================================
+======================================================================================================================
 
 **Instruções de Instalação:
 Esse código foi escrito para funcionar no sistema Windows. Siga os passos abaixo para configurar e executar o projeto corretamente.
@@ -74,18 +74,18 @@ Navegue até o diretório do projeto clonado e compile o código usando "mingw32
 Passo 5: Execute o programa
 Após a compilação bem-sucedida, você pode executar o programa usando ".\bin\main.exe"
 
-======================================================================================================================================================================================
+======================================================================================================================
 
 **Instruções de Uso: 
 -Execute "Batalha_Naval".
 -Espere o jogo carregar e aperte a tecla 'Espaço'.
 
-======================================================================================================================================================================================
+======================================================================================================================
 
 **Principais dificuldades: A ideia inicial, era ser um jogo Multiplayer, porém se provou complicado fazer a manutenção de dois jogadores. Para que o jogo pudesse ser jogado,
 elaboramos um IA simples, para competir com o jogador
 
-======================================================================================================================================================================================
+======================================================================================================================
 
 **User Stories - Batalha Naval Multiplayer
 Descrição: Como usuário, desejo conseguir jogar uma partida do clássico jogo de batalha naval.
@@ -96,7 +96,7 @@ Critérios de Aceitação:
 - Posso rotacionar minha peça pelo tabuleiro.
 - Posso saber se minha jogada acertou ou errou um alvo.
 
-======================================================================================================================================================================================
+======================================================================================================================
 
 **Classes/Funções a serem usadas (Cartões CRC):
 1) Cartão CRC para jogador:
@@ -202,6 +202,6 @@ Critérios de Aceitação:
 -Colaborações:
        Utilizado por diversas classes e funções no jogo de batalha naval para interpretar e responder às entradas do usuário via teclado.
 
-======================================================================================================================================================================================
+=====================================================================================================================
 
 **Referência da imagem ship.ico: https://www.flaticon.com/free-icon/boat_3322490?term=ship&page=1&position=5&origin=search&related_id=3322490
