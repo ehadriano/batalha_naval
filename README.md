@@ -1,5 +1,5 @@
 TP - PDS2 - Grupo 8: Batalha Naval
-Integrantes: Eduardo H Adriano, Pedro Bicalho de Sousa, Júlia Menezes, Gabriela Teixeira Santos
+Integrantes: Eduardo H Adriano (Matrícula: 2024421789), Pedro Bicalho de Sousa, Júlia Menezes, Gabriela Teixeira Santos
 
 **Apresentação do Problema: Quem nunca passou por momentos de tédio, onde não se tem nada para fazer? Nessas horas, não tem nada melhor que um joguinho simples para passar o tempo.
 
