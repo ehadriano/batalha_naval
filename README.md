@@ -47,43 +47,36 @@ batalha_naval/
 ======================================================================================================================================================================================
 
 **Instruções de Instalação:
-Passo 1: Instalar Ferramentas Básicas
-1- Instalar um compilador C++, no caso do LINUX, pode ser instalado pelo comando “sudo apt-get install g++”.
-2- Instalar o CMake, no caso do LINUX, “sudo apt-get install cmake”.
-3- Instalar um editor de texto.
+Esse código foi escrito para funcionar no sistema Windows. Siga os passos abaixo para configurar e executar o projeto corretamente.
 
-Passo 2: Clonar o Repositório
-1- Abrir uma Prompt de Comando
-2- Instalar o git usando, no caso do LINUX, “sudo apt-get install git”.
-3-Clonar o repositório usando:
-git clone https://github.com/ehdriano/batalha_naval.git
+MinGW: Certifique-se de ter o MinGW (Minimalist GNU for Windows) instalado. Você pode baixá-lo aqui: https://sourceforge.net/projects/mingw/
+Git: Certifique-se de ter o Git instalado. Você pode baixá-lo aqui: https://git-scm.com/downloads
+
+Passo 1: Clone o repositório
+git clone https://github.com/ehadriano/batalha_naval.git
 cd batalha_naval
 
-Passo 3: Configurar o CMake
-1- Crie um arquivo “CmakeLists.txt” na raiz do projeto.
+Passo 2: Instale o MinGW
+Baixe e instale o MinGW. Certifique-se de selecionar o "mingw32-gcc-g++" no menu de seleção de pacotes.
 
-Passo 4: Compilar o projeto
-1- Crie um Diretório de Construção usando:
-mkdir build
-cd build
-2- Gere os arquivos de construção e compile o projeto usando:
-cmake ..
-3- Compile o projeto usando:
-cmake --build .
+Passo 3: Configure o PATH
+Adicione o caminho do MinGW ao seu PATH do sistema. O caminho é algo como "C:\MinGW\bin"
+       Para adicionar ao PATH:
+              Abra o Painel de Controle
+              Vá em Sistema e Segurança > Sistema > Configurações avançadas do sistema
+              Clique em "Variáveis de Ambiente"
+              Em "Variáveis do sistema", encontre a variável Path e edite-a
+              Adicione o caminho do MinGW (por exemplo, C:\MinGW\bin)
 
-Passo 5: Executar o Projeto
-1-Após compilado, execute o projeto usando:
-./BatalhaNaval
-2-Instalar extensões como:
-C/C++
-CMake Tools
-3-Configurar a Construção criando um arquivo .vscode/tasks.json.
-4-Configura o Debug criando um arquivo .vscode/launch.json.
+Passo 4: Compile o código
+Navegue até o diretório do projeto clonado e compile o código usando "mingw32-make"
+
+Passo 5: Execute o programa
+Após a compilação bem-sucedida, você pode executar o programa usando ".\bin\main.exe"
 
 ======================================================================================================================================================================================
 
 **Instruções de Uso: 
--Baixe o arquivo num computador com sistema operacional Windows.
 -Execute "Batalha_Naval".
 -Espere o jogo carregar e aperte a tecla 'Espaço'.
 
