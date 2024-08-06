@@ -1,0 +1,200 @@
+\doxysection{inimigo Class Reference}
+\hypertarget{classinimigo}{}\label{classinimigo}\index{inimigo@{inimigo}}
+
+
+{\ttfamily \#include $<$inimigo.\+hpp$>$}
+
+Inheritance diagram for inimigo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classinimigo}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classinimigo_ad5170691aae13c43aa193e97c7af88cc}{retornar\+Vida\+IN}} ()
+\item 
+void \mbox{\hyperlink{classinimigo_aecd57926f5da272b26b7c1bf2bc8710f}{printar\+Tabuleiro}} ()
+\item 
+void \mbox{\hyperlink{classinimigo_a4d3524a60ee3d81767aa33f192e1c6aa}{printar\+Tabuleiro\+IN}} ()
+\item 
+void \mbox{\hyperlink{classinimigo_ab44dba9f0b01cce1c22f694191e35e9d}{printar}} (int \&, int \&)
+\item 
+void \mbox{\hyperlink{classinimigo_aa587f1c622dd15913e2505b9432b0b6b}{apagar}} (int \&, int \&)
+\item 
+void \mbox{\hyperlink{classinimigo_aa9f655386f850fe086ff14ade5518193}{mover}} (int \&, int \&)
+\item 
+int \mbox{\hyperlink{classinimigo_ab8c83d7d0966f091ed5922fbb5639d86}{obterX}} (int, int)
+\item 
+int \mbox{\hyperlink{classinimigo_a46773bf8a7955bada59b05274e25095d}{obterY}} (int, int)
+\item 
+int \mbox{\hyperlink{classinimigo_a57a575665f0890f3d995d0f63393bcf8}{obterC}} ()
+\item 
+void \mbox{\hyperlink{classinimigo_ad68be45a08899b27cdd168b8e8ba2122}{printar\+Navios}} ()
+\item 
+void \mbox{\hyperlink{classinimigo_a2ca0c6143aa25af0ea32a7a061baf816}{printar\+CARRIER}} (int, int, int)
+\item 
+void \mbox{\hyperlink{classinimigo_aa5a188559815514db5780a36ac1ee3ea}{printar\+TANKER}} (int, int, int)
+\item 
+void \mbox{\hyperlink{classinimigo_a40f25b5d48621830e6d6de3a0f09ca22}{printar\+DESTROYER}} (int, int, int)
+\item 
+void \mbox{\hyperlink{classinimigo_ab910f274d23e5f06cc1e2b56fe48d007}{printar\+SUBMARINE}} (int, int, int)
+\item 
+void \mbox{\hyperlink{classinimigo_a0c2f7119b3fe2ff76c5dfe2606583078}{disparo}} (int, int)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classjogador}{jogador}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classjogador_a0a3bca2938d0dad3bd6dad7c03edd337}{retornar\+Vida\+JO}} ()
+\item 
+void \mbox{\hyperlink{classjogador_a77d0358ad9ec002b5644748c32c0519a}{printar\+Tabuleiro\+JO}} ()
+\item 
+int \mbox{\hyperlink{classjogador_a9885f7904d180cea0e5fe53a9787ec99}{capturaX}} ()
+\item 
+int \mbox{\hyperlink{classjogador_a2e64ede83fddb6440bd98116c0d1c003}{capturaY}} ()
+\item 
+int \mbox{\hyperlink{classjogador_acc1fa554ee24906b8e82d70e24310cc1}{obter}} ()
+\item 
+void \mbox{\hyperlink{classjogador_ad49938167b2806afca7dabab3b790dfe}{printar\+CARRIER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_a69b4d217fc63ac754d4536e63b94e20a}{apagar\+CARRIER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_a69e02253db21f0a957deb60fbb4a8303}{mover\+CARRIER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_aa2fe4fefadfb3145ed040518110e4969}{printar\+CARRIER\+\_\+\+Permanente}} (int, int, int)
+\item 
+void \mbox{\hyperlink{classjogador_aa7b835875c1a111420eff0a523ff111d}{printar\+TANKER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_ab4fba29f24be5af928b07410b8aa92d9}{apagar\+TANKER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_a8cc4284c62d360d2c5658b8e8e7434d8}{mover\+TANKER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_ae8060006f0761013d27c61f0e0fa41f7}{pintar\+TANKER\+\_\+\+Permanente}} (int, int, int)
+\item 
+void \mbox{\hyperlink{classjogador_ac282bf5c72b49ea198c7945755774d20}{printar\+DESTROYER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_ac37cae64a0ac354e9ff6a4803d9524af}{apagar\+DESTROYER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_a91e05f76c40a2b1bc4547e7b6eb6e9e1}{mover\+DESTROYER}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_aba62bb132f04fef409b092d1a5383022}{printar\+DESTROYER\+\_\+\+Permanente}} (int, int, int)
+\item 
+void \mbox{\hyperlink{classjogador_a4bcd17b80eaa39605af3ee7fd9552c97}{printar\+SUBMARINE}} (int \&x, int \&y, int c)
+\item 
+void \mbox{\hyperlink{classjogador_a21f876baeeb57d707e9b58dcdc1e9a22}{apagar\+SUBMARINE}} (int \&x, int \&y, int c)
+\item 
+void \mbox{\hyperlink{classjogador_aa1fef981a308ebb8eb7363d35a4d1658}{mover\+SUBMARINE}} (int \&, int \&, int)
+\item 
+void \mbox{\hyperlink{classjogador_a130261dad2804232a457f2253befc789}{printar\+SUBMARINE\+\_\+\+Permanente}} (int, int, int)
+\item 
+int \mbox{\hyperlink{classjogador_a33f7136d5a63a79dd4032a164ca42075}{converter\+Matriz}} (int)
+\item 
+int \mbox{\hyperlink{classjogador_ad9dd898a76b3ad358f592faffa7b5d5e}{converter\+Tabuleiro}} (int)
+\item 
+int \mbox{\hyperlink{classjogador_a0c7912a12c90a6a46aabcc6621f12fbf}{IAobter}} ()
+\item 
+int \mbox{\hyperlink{classjogador_a7b713c537c303815e7b9b07ea2b91862}{IAgeneral}} ()
+\item 
+int \mbox{\hyperlink{classjogador_afad8a8211f09bc1dc03047c006428ec6}{IAdificuldade}} (char)
+\item 
+int \mbox{\hyperlink{classjogador_a1879bbab323ef16fd43bf78bf4106737}{IAverificar}} (int, int)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classinimigo_aa587f1c622dd15913e2505b9432b0b6b}\index{inimigo@{inimigo}!apagar@{apagar}}
+\index{apagar@{apagar}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{apagar()}{apagar()}}
+{\footnotesize\ttfamily \label{classinimigo_aa587f1c622dd15913e2505b9432b0b6b} 
+void inimigo\+::apagar (\begin{DoxyParamCaption}\item[{int \&}]{}{, }\item[{int \&}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_a0c2f7119b3fe2ff76c5dfe2606583078}\index{inimigo@{inimigo}!disparo@{disparo}}
+\index{disparo@{disparo}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{disparo()}{disparo()}}
+{\footnotesize\ttfamily \label{classinimigo_a0c2f7119b3fe2ff76c5dfe2606583078} 
+void inimigo\+::disparo (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_aa9f655386f850fe086ff14ade5518193}\index{inimigo@{inimigo}!mover@{mover}}
+\index{mover@{mover}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{mover()}{mover()}}
+{\footnotesize\ttfamily \label{classinimigo_aa9f655386f850fe086ff14ade5518193} 
+void inimigo\+::mover (\begin{DoxyParamCaption}\item[{int \&}]{}{, }\item[{int \&}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_a57a575665f0890f3d995d0f63393bcf8}\index{inimigo@{inimigo}!obterC@{obterC}}
+\index{obterC@{obterC}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{obterC()}{obterC()}}
+{\footnotesize\ttfamily \label{classinimigo_a57a575665f0890f3d995d0f63393bcf8} 
+int inimigo\+::obterC (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_ab8c83d7d0966f091ed5922fbb5639d86}\index{inimigo@{inimigo}!obterX@{obterX}}
+\index{obterX@{obterX}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{obterX()}{obterX()}}
+{\footnotesize\ttfamily \label{classinimigo_ab8c83d7d0966f091ed5922fbb5639d86} 
+int inimigo\+::obterX (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_a46773bf8a7955bada59b05274e25095d}\index{inimigo@{inimigo}!obterY@{obterY}}
+\index{obterY@{obterY}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{obterY()}{obterY()}}
+{\footnotesize\ttfamily \label{classinimigo_a46773bf8a7955bada59b05274e25095d} 
+int inimigo\+::obterY (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_ab44dba9f0b01cce1c22f694191e35e9d}\index{inimigo@{inimigo}!printar@{printar}}
+\index{printar@{printar}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{printar()}{printar()}}
+{\footnotesize\ttfamily \label{classinimigo_ab44dba9f0b01cce1c22f694191e35e9d} 
+void inimigo\+::printar (\begin{DoxyParamCaption}\item[{int \&}]{}{, }\item[{int \&}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_a2ca0c6143aa25af0ea32a7a061baf816}\index{inimigo@{inimigo}!printarCARRIER@{printarCARRIER}}
+\index{printarCARRIER@{printarCARRIER}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{printarCARRIER()}{printarCARRIER()}}
+{\footnotesize\ttfamily \label{classinimigo_a2ca0c6143aa25af0ea32a7a061baf816} 
+void inimigo\+::printar\+CARRIER (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{int}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_a40f25b5d48621830e6d6de3a0f09ca22}\index{inimigo@{inimigo}!printarDESTROYER@{printarDESTROYER}}
+\index{printarDESTROYER@{printarDESTROYER}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{printarDESTROYER()}{printarDESTROYER()}}
+{\footnotesize\ttfamily \label{classinimigo_a40f25b5d48621830e6d6de3a0f09ca22} 
+void inimigo\+::printar\+DESTROYER (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{int}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_ad68be45a08899b27cdd168b8e8ba2122}\index{inimigo@{inimigo}!printarNavios@{printarNavios}}
+\index{printarNavios@{printarNavios}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{printarNavios()}{printarNavios()}}
+{\footnotesize\ttfamily \label{classinimigo_ad68be45a08899b27cdd168b8e8ba2122} 
+void inimigo\+::printar\+Navios (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_ab910f274d23e5f06cc1e2b56fe48d007}\index{inimigo@{inimigo}!printarSUBMARINE@{printarSUBMARINE}}
+\index{printarSUBMARINE@{printarSUBMARINE}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{printarSUBMARINE()}{printarSUBMARINE()}}
+{\footnotesize\ttfamily \label{classinimigo_ab910f274d23e5f06cc1e2b56fe48d007} 
+void inimigo\+::printar\+SUBMARINE (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{int}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_aecd57926f5da272b26b7c1bf2bc8710f}\index{inimigo@{inimigo}!printarTabuleiro@{printarTabuleiro}}
+\index{printarTabuleiro@{printarTabuleiro}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{printarTabuleiro()}{printarTabuleiro()}}
+{\footnotesize\ttfamily \label{classinimigo_aecd57926f5da272b26b7c1bf2bc8710f} 
+void inimigo\+::printar\+Tabuleiro (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_a4d3524a60ee3d81767aa33f192e1c6aa}\index{inimigo@{inimigo}!printarTabuleiroIN@{printarTabuleiroIN}}
+\index{printarTabuleiroIN@{printarTabuleiroIN}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{printarTabuleiroIN()}{printarTabuleiroIN()}}
+{\footnotesize\ttfamily \label{classinimigo_a4d3524a60ee3d81767aa33f192e1c6aa} 
+void inimigo\+::printar\+Tabuleiro\+IN (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_aa5a188559815514db5780a36ac1ee3ea}\index{inimigo@{inimigo}!printarTANKER@{printarTANKER}}
+\index{printarTANKER@{printarTANKER}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{printarTANKER()}{printarTANKER()}}
+{\footnotesize\ttfamily \label{classinimigo_aa5a188559815514db5780a36ac1ee3ea} 
+void inimigo\+::printar\+TANKER (\begin{DoxyParamCaption}\item[{int}]{}{, }\item[{int}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classinimigo_ad5170691aae13c43aa193e97c7af88cc}\index{inimigo@{inimigo}!retornarVidaIN@{retornarVidaIN}}
+\index{retornarVidaIN@{retornarVidaIN}!inimigo@{inimigo}}
+\doxysubsubsection{\texorpdfstring{retornarVidaIN()}{retornarVidaIN()}}
+{\footnotesize\ttfamily \label{classinimigo_ad5170691aae13c43aa193e97c7af88cc} 
+int inimigo\+::retornar\+Vida\+IN (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{inimigo_8hpp}{inimigo.\+hpp}}\end{DoxyCompactItemize}
