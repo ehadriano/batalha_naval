@@ -1,37 +1,52 @@
 TP - PDS2 - Grupo 8: Batalha Naval
 Integrantes: Eduardo H Adriano, Pedro Bicalho de Sousa, Júlia Menezes, Gabriela Teixeira Santos
 
-Apresentação do Problema: Quem nunca passou por momentos de tédio, onde não se tem nada para fazer? Nessas horas, não tem nada melhor que um joguinho simples para passar o tempo.
+**Apresentação do Problema: Quem nunca passou por momentos de tédio, onde não se tem nada para fazer? Nessas horas, não tem nada melhor que um joguinho simples para passar o tempo.
 
-Visão Geral da Solução: Visando entretenimento, desenvolveu-se um jogo de Batalha Naval para dois jogadores. Os tabuleiros serão posicionados de forma aleatória, cada jogador terá seu turno, podendo digitar uma coordenada e saber as consequências de sua jogada. Quando todos os navios de um jogador estiverem afundados, um vencedor deve ser declarado. 
+**Visão Geral da Solução: Visando entretenimento, desenvolveu-se um jogo de Batalha Naval. O tabuleiro do jogador poderá ser montado de forma arbitrária.
 
-Estrutura Geral do Projeto (Sujeito a Eventuais Mudanças): 
+======================================================================================================================================================================================
+
+**Estrutura Geral do Projeto: 
 batalha_naval/ 
-├── src/ │ 
-       ├── main.cpp 
-       ├── tabuleiro.cpp 
-       ├── tabuleiro.h  
-       ├── jogo.cpp 
-       ├── jogo.h 
-       ├── jogador.cpp 
-       ├── jogador.h 
-├── include/
-       ├── tabuleiro.h  
-       ├── jogo.h 
-       ├── jogador.h 
-├── tests/ 
-       ├── test_main.cpp 
-       ├── test_board.cpp 
-       ├── test_game.cpp 
-       ├── test_player.cpp 
-├── docs/   
-       ├── README.md
-       ├── manual.pdf 
-       ├── design.md 
-├── CMakeLists.txt 
-└── Makefile
+├── bin
+│   └── main.exe
+├── Documentação
+│   └── Doxyfile
+│   └── html
+│   └── latex
+├── img
+│   └── ship.ico
+├── include
+│   ├── config.hpp
+│   ├── inimigo.hpp
+│   ├── jogador.hpp
+│   ├── matrizes.hpp
+│   ├── menu.hpp
+│   └── utilitarios.hpp
+├── obj
+│   ├── inimigo.o
+│   ├── jogador.o
+│   ├── main.o
+│   ├── matrizes.o
+│   ├── menu.o
+│   └── utilitarios.o
+├── scr
+│   ├── inimigo.cpp
+│   ├── jogador.cpp
+│   ├── main.cpp
+│   ├── matrizes.cpp
+│   ├── menu.cpp
+│   └── utilitarios.cpp
+├── scripts
+│   └── create_shortcut.bat
+├── Batalha_Naval.lnk
+├── Makefile
+└── README.md
 
-Instruções de Instalação:
+======================================================================================================================================================================================
+
+**Instruções de Instalação:
 Passo 1: Instalar Ferramentas Básicas
 1- Instalar um compilador C++, no caso do LINUX, pode ser instalado pelo comando “sudo apt-get install g++”.
 2- Instalar o CMake, no caso do LINUX, “sudo apt-get install cmake”.
@@ -65,92 +80,135 @@ CMake Tools
 3-Configurar a Construção criando um arquivo .vscode/tasks.json.
 4-Configura o Debug criando um arquivo .vscode/launch.json.
 
-Instruções de Uso: (O jogo irá te guiar durante a partida)
+======================================================================================================================================================================================
 
-Principais dificuldades: Se provou extremamente complicado organizar a estrutura geral do projeto e as instruções de instalação, dito isso, recorrer a monitoria em estágios mais avançados deve se mostrar necessário.
+**Instruções de Uso: 
+-Baixe o arquivo num computador com sistema operacional Windows.
+-Execute "Batalha_Naval".
+-Espere o jogo carregar e aperte a tecla 'Espaço'.
 
-User Stories - Batalha Naval Multiplayer
-Descrição: Como usuário, desejo conseguir jogar uma partida do clássico jogo de batalha naval, com mais uma pessoa.
+======================================================================================================================================================================================
+
+**Principais dificuldades: A ideia inicial, era ser um jogo Multiplayer, porém se provou complicado fazer a manutenção de dois jogadores. Para que o jogo pudesse ser jogado,
+elaboramos um IA simples, para competir com o jogador
+
+======================================================================================================================================================================================
+
+**User Stories - Batalha Naval Multiplayer
+Descrição: Como usuário, desejo conseguir jogar uma partida do clássico jogo de batalha naval.
 Critérios de Aceitação:
-- O código posicionará automaticamente e de forma aleatória, tanto o meu tabuleiro, quanto do meu adversário.
-- Posso realizar jogadas, digitando duas coordenadas válidas.
-- Posso saber se minha jogada é uma coordenada válida.
+- Quero poder posicionar meus navios onde eu desejar
+- Posso realizar jogadas, selecionando coordenadas no tabuleiro do inimigo.
+- Posso mover minha peça pelo tabuleiro.
+- Posso rotacionar minha peça pelo tabuleiro.
 - Posso saber se minha jogada acertou ou errou um alvo.
-- Posso saber o vencedor da partida
 
-Classes/Funções a serem usadas (Cartões CRC): Possíveis atributos necessários para funcionamento (sujeito a mudanças), Responsabilidade (Função) de cada classe e como elas Colaboram umas com as outras.
-1º Classe “Tabuleiro”: Inicia o tabuleiro do jogo, representado por uma Matriz 10x10, onde serão armazenados os estados das células (água, navios, navios afundados).
-Atributos: 
-“vector<vector<char>> grade”: inicia o tabuleiro
-“Tamanho_do_Tabuleiro” * “Tamanho_do_Tabuleiro”: define a área do tabuleiro
-“Agua”: preenche o tabuleiro
-Colabora com:
--”void PrintTabuleiro” para exibir o tabuleiro.
--”bool ColocarNavio” para posicionar os navios no tabuleiro.
--”bool FazerJogada” para registrar ataque no tabuleiro.
--”bool FimDeJogo” para verificar se todos os navios foram afundados.
+======================================================================================================================================================================================
 
-2º Função “void PrintTabuleiro”: Imprime o tabuleiro no console
-Parâmetros: 
-“const Tabuleiro& tabuleiro”
-Colabora com:
--“Tabuleiro” pois recebe o tabuleiro para imprimir
+**Classes/Funções a serem usadas (Cartões CRC):
+1) Cartão CRC para jogador:
+-Responsabilidades:
+       Retornar a vida atual do jogador (retornarVidaJO).
+       Imprimir o tabuleiro do jogador (printarTabuleiroJO).
+       Capturar a coordenada X (capturaX).
+       Capturar a coordenada Y (capturaY).
+       Obter uma coordenada aleatória (obter).
+       Manipular o navio CARRIER:
+              Printar (printarCARRIER)
+              Apagar (apagarCARRIER)
+              Mover (moverCARRIER)
+              Printar permanentemente (printarCARRIER_Permanente)
+       Manipular o navio TANKER:
+              Printar (printarTANKER)
+              Apagar (apagarTANKER)
+              Mover (moverTANKER)
+              Printar permanentemente (printarTANKER_Permanente)
+       Manipular o navio DESTROYER:
+              Printar (printarDESTROYER)
+              Apagar (apagarDESTROYER)
+              Mover (moverDESTROYER)
+              Printar permanentemente (printarDESTROYER_Permanente)
+       Manipular o navio SUBMARINE:
+              Printar (printarSUBMARINE)
+              Apagar (apagarSUBMARINE)
+              Mover (moverSUBMARINE)
+              Printar permanentemente (printarSUBMARINE_Permanente)
+       Converter coordenadas da matriz para coordenadas do tabuleiro (converterMatriz).
+       Converter coordenadas do tabuleiro para coordenadas da matriz (converterTabuleiro).
+       IA:
+              Obter coordenadas para jogada automática (IAobter).
+              Gerar jogadas (IAgeneral).
+              Definir dificuldade da IA (IAdificuldade).
+              Verificar a jogada da IA (IAverificar).
 
-3° Função “bool ColocarNavio”: coloca um navio no tabuleiro, em uma posição aleatória.
-Parâmetros: 
-“Tabuleiro& tabuleiro”: Onde o navio será colocado.
-“char Tipo_do_Navio”: Define o tipo de navio a ser colocado (S, D, T, ou C)
-“Int Tamanho_do_Navio”: Define o tamanho do navio.
-“unsigned int seed”: Garante que os navios sejam posicionados aleatoriamente
-Colabora com:
--“Tabuleiro” para modificar o estado do tabuleiro com os navios adicionados
+-Colaborações:
+       Interage com a classe Tabuleiro para atualizar e imprimir o tabuleiro.
+       Interage com as funções de utilitários (gotoxy, ocultarCursor).
 
-4º Função “void ColocarNavios”: coloca todos os navios no tabuleiro, usando a função 3
-Parâmetros: 
-“Tabuleiro& tabuleiro”
-“Int seed”
-Colabora com:
--“Tabuleiro” para modificar o estado do tabuleiro com os navios adicionados.
--”bool ColocarNavio” para colocar cada navio individualmente.
+2) Cartão CRC para menu:
+-Responsabilidades:
+       Exibir a tela inicial do jogo (TELA_INICIAL).
+       Exibir as instruções do jogo (INSTRUCOES).
+       Exibir o objetivo do jogo (OBJETIVO).
 
-5º Função “bool FazerJogada”: Realiza um movimento no tabuleiro, marcando um erro ou acerto.
-Parâmetros:
-“Tabuleiro& tabuleiro”
-“Int x”: coordenada X
-“Int y”: coordenada Y
-Colabora com:
--“Tabuleiro” para modificar o estado do tabuleiro com o resultado do ataque.
+-Colaborações:
+       Interage com a interface do usuário para mostrar as diferentes telas do menu.
 
-6º Função “bool FimDeJogo”: Verifica se um dos jogadores teve todos os navios afundados.
-Parâmetros:
-“const Tabuleiro& tabuleiro”
-Colabora com:
--“Tabuleiro” para verificar o tabuleiro e a presença de navios.
+3) Cartão CRC para utilitarios:
+-Responsabilidades:
+       Posicionar o cursor na coordenada (x, y) no console (gotoxy).
+       Ocultar o cursor no console (ocultarCursor).
 
-7º Função “void Turno”: Gerencia a vez de um jogador, incluindo a entrada de um par de coordenadas e a realização de uma jogada.
-Parâmetros:
-“Tabuleiro& meuTabuleiro” : Tabuleiro do jogador atual
-“Tabuleiro& oponenteTabuleiro”: Tabuleiro do oponente, onde será feita a jogada
-“Int NumeroJogador”
-“Int NumeroRodada”
-Colabora com:
--“Tabuleiro” para ler e modificar o tabuleiro dos jogadores.
--“bool FazerJogada” para realizar o ataque.
--“void PrintTabuleiro” para exibir o estado atual dos tabuleiros.
+-Colaborações:
+       Utilizado pelas classes Jogador e Menu para manipulação do cursor e da interface do console.
 
-8º Função “int Main”: Função principal, onde a magia acontece. Aqui serão inicializados os tabuleiros, os navios serão colocados, os turnos serão gerenciados e o vencedor determinado.
-Colabora com:
--“Tabuleiro” para criar os tabuleiros dos jogadores.
--“void ColocarNavios” para posicionar os navios nos tabuleiros.
--“void Turno” para gerenciar os turnos dos jogadores.
--“bool FimDeJogo” para verificar um vencedor.
+4) Cartão CRC para matrizes:
+-Responsabilidades:
+       Armazenar o estado do tabuleiro principal (MA).
+       Armazenar o estado do tabuleiro do jogador (JO).
+       Armazenar o estado do tabuleiro do inimigo (en).
 
-Variáveis Globais:
-const int TAMANHO_DO_TABULEIRO = 10;
-const char AGUA = '~'; 
-const char SUBMARINE = 'S'; (4 desse tipo, ocupando 4 casa cada)
-const char DESTROYER = 'D'; (3 desse tipo, ocupando 3 casas cada)
-const char TANKER = 'T'; (2 desse tipo, ocupando 4 casas cada)
-const char CARRIER = 'C'; (1 desse tipo, ocupando 5 casas cada)
-const char ACERTO = 'X';
-const char ERRO = ' ';
+-Colaborações:
+       Utilizado pelas classes Jogador, Tabuleiro, e possivelmente outras classes relacionadas ao jogo para:
+              Atualizar o estado dos tabuleiros durante o jogo.
+              Verificar o estado atual do jogo (por exemplo, se um navio foi atingido).
+              Renderizar a visualização do tabuleiro para o jogador e o inimigo.
+
+5) Cartão CRC para inimigo:
+-Responsabilidades:
+       Gerenciar a vida do inimigo:
+              Retornar a vida atual do inimigo (retornarVidaIN).
+       Imprimir o tabuleiro do inimigo:
+              Imprimir o tabuleiro do inimigo (printarTabuleiro).
+              Imprimir o tabuleiro interno do inimigo (printarTabuleiroIN).
+       Manipular a posição e estado de disparo:
+              Imprimir a posição (printar).
+              Apagar a posição (apagar).
+              Mover a posição (mover).
+       Obter coordenadas e direção:
+              Obter coordenada X (obterX).
+              Obter coordenada Y (obterY).
+              Obter direção (obterC).
+       Imprimir navios do inimigo:
+              Imprimir todos os navios do inimigo (printarNavios).
+              Imprimir navios específicos (printarCARRIER, printarTANKER, printarDESTROYER, printarSUBMARINE).
+       Registrar disparo:
+              Registrar disparo (disparo).
+-Colaborações:
+       Herda e colabora com a classe Jogador para reutilizar métodos e funcionalidades comuns aos jogadores.
+       Interage com a matriz global en para atualizar o estado do tabuleiro do inimigo.
+       Utiliza funções de utilitários para manipulação do cursor e interface do console.
+
+6) Cartão CRC para config:
+-Responsabilidades:
+       Definir constantes para teclas de direção do teclado:
+              Definir constante para a tecla de seta para a esquerda (ESQUERDA).
+              Definir constante para a tecla de seta para a direita (DIREITA).
+              Definir constante para a tecla de seta para cima (CIMA).
+              Definir constante para a tecla de seta para baixo (BAIXO).
+-Colaborações:
+       Utilizado por diversas classes e funções no jogo de batalha naval para interpretar e responder às entradas do usuário via teclado.
+
+======================================================================================================================================================================================
+
+**Referência da imagem ship.ico: https://www.flaticon.com/free-icon/boat_3322490?term=ship&page=1&position=5&origin=search&related_id=3322490
