@@ -2,6 +2,15 @@
 
 //Modelos dos Tabuleiros do jogo
 
+/**
+ * @file matrizes.cpp
+ * @brief Modelos dos Tabuleiros do jogo
+ */
+/**
+ * @brief Modelo do tabuleiro principal do jogo.
+ *
+ * MA representa o tabuleiro principal do jogo com coordenadas e espaços para os navios e tiros.
+ */
 char MA[22][22] = {
     {' ', ' ', 'A', ' ', 'B', ' ', 'C', ' ', 'D', ' ', 'E', ' ', 'F', ' ', 'G', ' ', 'H', ' ', 'I', ' ', 'J', ' '},
     {' ', ' ', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', ' '},
@@ -27,6 +36,11 @@ char MA[22][22] = {
     {' ', ' ', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', ' '},
 };
 
+/**
+ * @brief Modelo do tabuleiro do jogador.
+ *
+ * JO representa o tabuleiro do jogador com coordenadas e espaços para os navios e tiros.
+ */
 char JO[22][22] = {
     {' ', ' ', 'A', ' ', 'B', ' ', 'C', ' ', 'D', ' ', 'E', ' ', 'F', ' ', 'G', ' ', 'H', ' ', 'I', ' ', 'J', ' '},
     {' ', ' ', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', ' '},
@@ -52,6 +66,11 @@ char JO[22][22] = {
     {' ', ' ', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', ' '},
 };
 
+/**
+ * @brief Modelo do tabuleiro do inimigo.
+ *
+ * en representa o tabuleiro do inimigo com coordenadas e espaços para os navios e tiros.
+ */
 char en[22][22] = {
     {' ', ' ', 'A', ' ', 'B', ' ', 'C', ' ', 'D', ' ', 'E', ' ', 'F', ' ', 'G', ' ', 'H', ' ', 'I', ' ', 'J', ' '},
     {' ', ' ', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', ' '},
