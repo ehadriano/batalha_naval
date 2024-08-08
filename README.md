@@ -11,22 +11,21 @@ Integrantes: Eduardo H Adriano (Matrícula: 2024421789), Pedro Bicalho de Sousa,
 batalha_naval/ 
 ├── bin
 │   └── main.exe
-├── Documentação
-│   └── Doxyfile
+├── docs
 │   └── html
-│   └── latex
-├── img
-│   └── ship.ico
+│   └── PDF
 ├── include
 │   ├── config.hpp
 │   ├── inimigo.hpp
 │   ├── jogador.hpp
+│   ├── jogo.hpp
 │   ├── matrizes.hpp
 │   ├── menu.hpp
 │   └── utilitarios.hpp
 ├── obj
 │   ├── inimigo.o
 │   ├── jogador.o
+│   ├── jogo.o
 │   ├── main.o
 │   ├── matrizes.o
 │   ├── menu.o
@@ -34,13 +33,11 @@ batalha_naval/
 ├── scr
 │   ├── inimigo.cpp
 │   ├── jogador.cpp
+│   ├── jogo.cpp
 │   ├── main.cpp
 │   ├── matrizes.cpp
 │   ├── menu.cpp
 │   └── utilitarios.cpp
-├── scripts
-│   └── create_shortcut.bat
-├── Batalha_Naval.lnk
 ├── Makefile
 └── README.md
 
@@ -74,16 +71,23 @@ Navegue até o diretório do projeto clonado e compile o código usando "mingw32
 Passo 5: Execute o programa
 Após a compilação bem-sucedida, você pode executar o programa usando ".\bin\main.exe"
 
+Para acessar a documentação, vá até ../docs/html e procure pelo arquivo index.html, você será redirecionado para uma pagina no navegador.
+Alguns arquivos como jogador.cpp e inimigo.cpp ficaram muito pesados, a documentação desse se encontra em ../docs/PDF , no formato de PDFs.
+
 ======================================================================================================================
 
 **Instruções de Uso: 
 -Execute "Batalha_Naval".
 -Espere o jogo carregar e aperte a tecla 'Espaço'.
+-Para iniciar uma peça, basta mecher nas 'setinhas'.
+-Para rotaciona uma peça, apaerte 'c'.
+-Para posicionar uma peça, aperta 'x'.
+-Para disparar, aperte 'z'.
 
 ======================================================================================================================
 
 **Principais dificuldades: A ideia inicial, era ser um jogo Multiplayer, porém se provou complicado fazer a manutenção de dois jogadores. Para que o jogo pudesse ser jogado,
-elaboramos um IA simples, para competir com o jogador
+elaboramos um IA simples, para competir com o jogador. Por algum motivo, a condição do derrota do jogador não está sendo atingida, acredito que o contador implementado em 'jogador::disparos' não está sendo chamado de forma correta.
 
 ======================================================================================================================
 
@@ -98,8 +102,8 @@ Critérios de Aceitação:
 
 ======================================================================================================================
 
-**Classes/Funções a serem usadas (Cartões CRC):
-1) Cartão CRC para jogador:
+**Classes/Funções a serem usadas:
+1) Classe jogador:
 -Responsabilidades:
        Retornar a vida atual do jogador (retornarVidaJO).
        Imprimir o tabuleiro do jogador (printarTabuleiroJO).
@@ -135,10 +139,12 @@ Critérios de Aceitação:
               Verificar a jogada da IA (IAverificar).
 
 -Colaborações:
-       Interage com a classe Tabuleiro para atualizar e imprimir o tabuleiro.
+       Interage com a classe inimigo para verificar as condições de vitória e derrota.
        Interage com as funções de utilitários (gotoxy, ocultarCursor).
+       Interage com jogo para iniciaização e controles do jogo.
 
-2) Cartão CRC para menu:
+
+2) Classe menu:
 -Responsabilidades:
        Exibir a tela inicial do jogo (TELA_INICIAL).
        Exibir as instruções do jogo (INSTRUCOES).
@@ -147,27 +153,27 @@ Critérios de Aceitação:
 -Colaborações:
        Interage com a interface do usuário para mostrar as diferentes telas do menu.
 
-3) Cartão CRC para utilitarios:
+3) utilitarios:
 -Responsabilidades:
        Posicionar o cursor na coordenada (x, y) no console (gotoxy).
        Ocultar o cursor no console (ocultarCursor).
 
 -Colaborações:
-       Utilizado pelas classes Jogador e Menu para manipulação do cursor e da interface do console.
+       Utilizado pelas classes jogador, inimigo e menu para manipulação do cursor e da interface do console.
 
-4) Cartão CRC para matrizes:
+4) matrizes:
 -Responsabilidades:
        Armazenar o estado do tabuleiro principal (MA).
        Armazenar o estado do tabuleiro do jogador (JO).
        Armazenar o estado do tabuleiro do inimigo (en).
 
 -Colaborações:
-       Utilizado pelas classes Jogador, Tabuleiro, e possivelmente outras classes relacionadas ao jogo para:
+       Utilizado pelas classes jogador, inimigo, e outras classes relacionadas ao jogo para:
               Atualizar o estado dos tabuleiros durante o jogo.
               Verificar o estado atual do jogo (por exemplo, se um navio foi atingido).
               Renderizar a visualização do tabuleiro para o jogador e o inimigo.
 
-5) Cartão CRC para inimigo:
+5) Classe inimigo:
 -Responsabilidades:
        Gerenciar a vida do inimigo:
               Retornar a vida atual do inimigo (retornarVidaIN).
@@ -188,11 +194,12 @@ Critérios de Aceitação:
        Registrar disparo:
               Registrar disparo (disparo).
 -Colaborações:
-       Herda e colabora com a classe Jogador para reutilizar métodos e funcionalidades comuns aos jogadores.
+       Herda e colabora com a classe jogador para reutilizar métodos e funcionalidades comuns aos jogadores.
        Interage com a matriz global en para atualizar o estado do tabuleiro do inimigo.
        Utiliza funções de utilitários para manipulação do cursor e interface do console.
+       Interage com jogo para controle de suas ações
 
-6) Cartão CRC para config:
+6) config:
 -Responsabilidades:
        Definir constantes para teclas de direção do teclado:
               Definir constante para a tecla de seta para a esquerda (ESQUERDA).
@@ -202,6 +209,32 @@ Critérios de Aceitação:
 -Colaborações:
        Utilizado por diversas classes e funções no jogo de batalha naval para interpretar e responder às entradas do usuário via teclado.
 
-=====================================================================================================================
-
-**Referência da imagem ship.ico: https://www.flaticon.com/free-icon/boat_3322490?term=ship&page=1&position=5&origin=search&related_id=3322490
+7) jogo:
+-Responsabilidades:
+       Configurar o console:
+              Configura as propriedades do console, como o tamanho da tela e as cores.
+              configurarConsole()
+       Inicializar o jogo:
+              Inicializa o jogo, configurando os tabuleiros do jogador e do inimigo, e mostrando o menu inicial.
+              inicializarJogo(inimigo& a, jogador& b, menu& a1)
+       Verificar condições de vitória e derrota:
+              Verifica se o jogador venceu o jogo ao destruir todos os navios do inimigo.
+              verificarVitoria(inimigo& a, int& op, bool& gameover)
+              Verifica se o jogador perdeu o jogo ao ter todos os seus navios destruídos.
+              verificarDerrota(jogador& b, int& op, bool& gameover)
+       Processar entrada do jogador:
+              Processa a tecla pressionada pelo jogador e realiza ações baseadas na tecla.
+              processarTecla(char tecla, int& cam, int& Nave, jogador& b, int& q2, int& w2, int& p1, int& p2, int& p3, int& p4, int& Nave1, int& x1, int& y1, int& c1, int& x2, int& y2, int& c2, int& x3, int& y3, int& c3, int& x4, int& y4, int& c4, inimigo& a, int& q1, int& w1)
+       Atualizar a posição dos navios:
+              Atualiza a posição dos navios do jogador no tabuleiro.
+              atualizarNavios(jogador& b, int p1, int p2, int p3, int p4, int p5, int x1, int y1, int c1, int x2, int y2, int c2, int x3, int y3, int c3, int x4, int y4, int c4)
+       Mover navios:
+              Move os navios do jogador de acordo com os comandos recebidos.
+              moverNavios(jogador& b, int Nave, int& q2, int& w2, int cam)
+       Realizar ações principais do jogo:
+              Realiza as ações principais do jogo, como ataques e movimentações.
+              realizarAcoes(inimigo& a, jogador& b, int& Nave, int& p5, int& Nave1, int& q1, int& w1, jogador& j)
+-Colaboradores:
+       Interage com a classe Jogador para processar ações, atualizar e mover navios, e verificar condições de derrota.
+       Interage com a classe Inimigo para processar ações e verificar condições de vitória.
+       Interage com a classe Menu para configurar e inicializar o jogo.
