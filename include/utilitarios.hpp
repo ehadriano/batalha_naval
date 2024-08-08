@@ -3,13 +3,24 @@
 
 #include <windows.h>
 
-// Declaração de funções utilitárias para manipulação do cursor no console
-// Função para posicionar o cursor na coordenada (x, y) no console
-// x: Coordenada x (coluna)
-// y: Coordenada y (linha)
+/**
+ * @file utilitarios.hpp
+ * @brief Declaração de funções utilitárias para manipulação do cursor no console.
+ *
+ * Este arquivo contém declarações de funções que permitem posicionar e ocultar o cursor no console.
+ */
+
+/**
+ * @brief Posiciona o cursor na coordenada (x, y) no console.
+ * 
+ * @param x Coordenada x (coluna).
+ * @param y Coordenada y (linha).
+ */
 void gotoxy(int x, int y);
 
-// Função para ocultar o cursor no console
+/**
+ * @brief Oculta o cursor no console.
+ */
 void ocultarCursor();
 
 #endif // UTILITARIOS_HPP
