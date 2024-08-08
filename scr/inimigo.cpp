@@ -8,8 +8,15 @@
 
 using namespace std;
 
-
-/*Imprime o estado atual do tabuleiro de batalha do inimigo (MA) na tela, iterando através de uma matriz de 22x22 e imprimindo cada valor. */
+/**
+ * @file inimigo.cpp
+ * @brief Implementação da classe inimigo.
+ */
+/**
+ * @brief Imprime o estado atual do tabuleiro de batalha do inimigo (MA) na tela.
+ *
+ * Itera através de uma matriz de 22x22 e imprime cada valor.
+ */
 void inimigo::printarTabuleiro() {
     for (int i = 0; i < 22; i++) {
         cout << endl;
@@ -19,7 +26,11 @@ void inimigo::printarTabuleiro() {
     }
 }
 
-/* Imprime o estado atual do tabuleiro interno do inimigo (en) na tela, semelhante à função anterior, mas para a matriz en. */
+/**
+ * @brief Imprime o estado atual do tabuleiro interno do inimigo (en) na tela.
+ *
+ * Semelhante à função anterior, mas para a matriz en.
+ */
 void inimigo::printarTabuleiroIN() {
     for (int i = 0; i < 22; i++) {
         cout << endl;
@@ -29,18 +40,39 @@ void inimigo::printarTabuleiroIN() {
     }
 }
 
-/* Apaga o caractere na posição (x, y) do cursor no tabuleiro movendo o cursor para essa posição e imprimindo um espaço. */
+/**
+ * @brief Apaga o caractere na posição (x, y) do cursor no tabuleiro.
+ *
+ * Move o cursor para essa posição e imprime um espaço.
+ *
+ * @param x Coordenada x do cursor.
+ * @param y Coordenada y do cursor.
+ */
 void inimigo::apagar(int &x, int &y) {
     gotoxy(x, y); cout << " ";
 }
 
-/* Imprime o caractere '>' na posição (x, y) do cursor no tabuleiro, representando a posição atual do cursor. */
+/**
+ * @brief Imprime o caractere '>' na posição (x, y) do cursor no tabuleiro.
+ *
+ * Representa a posição atual do cursor.
+ *
+ * @param x Coordenada x do cursor.
+ * @param y Coordenada y do cursor.
+ */
 void inimigo::printar(int &x, int &y) {
     gotoxy(x, y); cout << ">";
 }
 
-/* Move o cursor pelo tabuleiro baseado nas entradas do teclado (setas de direção). Se uma tecla for pressionada (kbhit()), 
-a função apaga a posição anterior do cursor e atualiza a nova posição baseada na tecla pressionada. */
+/**
+ * @brief Move o cursor pelo tabuleiro baseado nas entradas do teclado (setas de direção).
+ *
+ * Se uma tecla for pressionada (kbhit()), a função apaga a posição anterior do cursor
+ * e atualiza a nova posição baseada na tecla pressionada.
+ *
+ * @param x Coordenada x do cursor.
+ * @param y Coordenada y do cursor.
+ */
 void inimigo::mover(int &x, int &y) {
     if (kbhit()) {
         int d = y - 1;
@@ -55,7 +87,13 @@ void inimigo::mover(int &x, int &y) {
     }
 }
 
-/* Gera e retorna uma coordenada X aleatória par entre 2 e 20 usando rand(). Continua gerando números até encontrar um par. */
+/**
+ * @brief Gera e retorna uma coordenada X aleatória par entre 2 e 20.
+ *
+ * @param c Parâmetro não utilizado.
+ * @param v Parâmetro não utilizado.
+ * @return Coordenada X aleatória par entre 2 e 20.
+ */
 int inimigo::obterX(int c, int v) {
     (void)c;
     (void)v;
@@ -66,7 +104,13 @@ int inimigo::obterX(int c, int v) {
     return x;
 }
 
-/* Gera e retorna uma coordenada Y aleatória par entre 2 e 20 usando rand(). Continua gerando números até encontrar um par. */
+/**
+ * @brief Gera e retorna uma coordenada Y aleatória par entre 2 e 20.
+ *
+ * @param c Parâmetro não utilizado.
+ * @param v Parâmetro não utilizado.
+ * @return Coordenada Y aleatória par entre 2 e 20.
+ */
 int inimigo::obterY(int c, int v) {
     (void)c;
     (void)v;
@@ -77,14 +121,23 @@ int inimigo::obterY(int c, int v) {
     return y;
 }
 
-/* Retorna uma direção aleatória (0 ou 1) usando rand(), onde 0 representa vertical e 1 representa horizontal. */
+/**
+ * @brief Retorna uma direção aleatória (0 ou 1).
+ *
+ * 0 representa vertical e 1 representa horizontal.
+ * @return Direção aleatória.
+ */
 int inimigo::obterC() {
     return rand() % 2;
 }
 
-/* Imprime o porta-aviões (Carrier) no tabuleiro na posição (x, y) e direção c. 
-Se c for 0, o navio é colocado verticalmente; 
-se for 1, horizontalmente. O porta-aviões ocupa 4 posições. */
+/**
+ * @brief Imprime o porta-aviões (Carrier) no tabuleiro na posição (x, y) e direção c.
+ *
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void inimigo::printarCARRIER(int x, int y, int c) {
     for (int i = 0; i < 4; ++i) {
         if (c == 0) {
@@ -95,9 +148,13 @@ void inimigo::printarCARRIER(int x, int y, int c) {
     }
 }
 
-/* mprime o navio tanque (Tanker) no tabuleiro na posição (x, y) e direção c. 
-Se c for 0, o navio é colocado verticalmente; 
-se for 1, horizontalmente. O navio tanque ocupa 3 posições. */
+/**
+ * @brief Imprime o navio tanque (Tanker) no tabuleiro na posição (x, y) e direção c.
+ *
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void inimigo::printarTANKER(int x, int y, int c) {
     for (int i = 0; i < 3; ++i) {
         if (c == 0) {
@@ -108,9 +165,13 @@ void inimigo::printarTANKER(int x, int y, int c) {
     }
 }
 
-/* Imprime o Destroyer no tabuleiro na posição (x, y) e direção c. 
-Se c for 0, o navio é colocado verticalmente; 
-se for 1, horizontalmente. O destruidor ocupa 3 posições.*/
+/**
+ * @brief Imprime o Destroyer no tabuleiro na posição (x, y) e direção c.
+ *
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void inimigo::printarDESTROYER(int x, int y, int c) {
     for (int i = 0; i < 3; ++i) {
         if (c == 0) {
@@ -121,64 +182,95 @@ void inimigo::printarDESTROYER(int x, int y, int c) {
     }
 }
 
-/* Imprime o Submarino no tabuleiro na posição (x, y) e direção c. O submarino ocupa 2 posições, com a segunda posição dependendo da direção c.*/
+/**
+ * @brief Imprime o Submarino no tabuleiro na posição (x, y) e direção c.
+ *
+ * O submarino ocupa 2 posições, com a segunda posição dependendo da direção c.
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio.
+ */
 void inimigo::printarSUBMARINE(int x, int y, int c) {
     en[y][x] = 'S';
 }
 
-/* Imprime todos os navios do inimigo no tabuleiro em posições válidas, evitando sobreposição. 
-Coloca cada tipo de navio (Carrier, Tanker, Destroyer, Submarine) em posições aleatórias usando as funções obterX, obterY e obterC.*/
-void inimigo::printarNavios() {
-    // Coloca o porta-aviões (Carrier)
-    int c1 = obterC();
-    int x1 = obterX(c1, 1);
-    int y1 = obterY(c1, 1);
-    printarCARRIER(x1, y1, c1);
-
-
-    // Coloca o navio tanque (Tanker)
-    while (true) {
-        int c2 = obterC();
-        int x2 = obterX(c2, 2);
-        int y2 = obterY(c2, 2);
-        if ((c2 == 0 && en[y2][x2] != 'P' && en[y2 + 2][x2] != 'P' && en[y2 + 4][x2] != 'P') ||
-            (c2 == 1 && en[y2][x2] != 'P' && en[y2][x2 + 2] != 'P' && en[y2][x2 + 4] != 'P')) {
-            printarTANKER(x2, y2, c2);
-            break;
+/**
+ * @brief Verifica se a posição é válida para colocar um navio.
+ *
+ * @param x Coordenada x inicial.
+ * @param y Coordenada y inicial.
+ * @param c Direção do navio.
+ * @param tamanho Comprimento do navio.
+ * @param tipo Tipo do navio.
+ * @return true se a posição for válida, false caso contrário.
+ */
+bool inimigo::posicaoValida(int x, int y, int c, int tamanho, char tipo) {
+    if (c == 0) { // Vertical
+        if (y + (tamanho - 1) * 2 >= 22) return false; // Fora dos limites
+        for (int i = 0; i < tamanho; ++i) {
+            if (en[y + 2 * i][x] != ' ') return false; // Verifica sobreposição
+        }
+    } else { // Horizontal
+        if (x + (tamanho - 1) * 2 >= 22) return false; // Fora dos limites
+        for (int i = 0; i < tamanho; ++i) {
+            if (en[y][x + 2 * i] != ' ') return false; // Verifica sobreposição
         }
     }
-
-    // Coloca o destruidor (Destroyer)
-    while (true) {
-        int c3 = obterC();
-        int x3 = obterX(c3, 2);
-        int y3 = obterY(c3, 2);
-        if ((c3 == 0 && en[y3][x3] != 'P' && en[y3 + 2][x3] != 'P' && en[y3 + 4][x3] != 'P' && 
-             en[y3][x3] != 'S' && en[y3 + 2][x3] != 'S' && en[y3 + 4][x3] != 'S') ||
-            (c3 == 1 && en[y3][x3] != 'P' && en[y3][x3 + 2] != 'P' && en[y3][x3 + 4] != 'P' && 
-             en[y3][x3] != 'S' && en[y3][x3 + 2] != 'S' && en[y3][x3 + 4] != 'S')) {
-            printarDESTROYER(x3, y3, c3);
-            break;
-        }
-    }
-
-    // Coloca o submarino (Submarine)
-    while (true) {
-        int c4 = obterC();
-        int x4 = obterX(c4, 0);
-        int y4 = obterY(c4, 0);
-        if ((c4 == 0 && en[y4][x4] != 'P' && en[y4][x4] != 'S' && en[y4][x4] != 'D') ||
-            (c4 == 1 && en[y4][x4] != 'P' && en[y4][x4] != 'S' && en[y4][x4] != 'D')) {
-            printarSUBMARINE(x4, y4, c4);
-            break;
-        }
-    }
+    return true;
 }
 
+/**
+ * @brief Imprime todos os navios do inimigo no tabuleiro em posições válidas, evitando sobreposição.
+ *
+ * Coloca cada tipo de navio (Carrier, Tanker, Destroyer, Submarine) em posições aleatórias usando as funções obterX, obterY e obterC.
+ */
+void inimigo::printarNavios() {
+    // Coloca o porta-aviões (Carrier)
+    int c1, x1, y1;
+    do {
+        c1 = obterC();
+        x1 = obterX(c1, 4);
+        y1 = obterY(c1, 4);
+    } while (!posicaoValida(x1, y1, c1, 4, 'C'));
+    printarCARRIER(x1, y1, c1);
 
-/* Registra um disparo no tabuleiro do inimigo na posição (x, y). 
-Se um navio for atingido, a posição é marcada como 'O' e a vida do inimigo (vidaIN) é incrementada. 
-Se o disparo não atingir um navio, a posição é marcada como 'X'. */
+    // Coloca o navio tanque (Tanker)
+    int c2, x2, y2;
+    do {
+        c2 = obterC();
+        x2 = obterX(c2, 3);
+        y2 = obterY(c2, 3);
+    } while (!posicaoValida(x2, y2, c2, 3, 'T'));
+    printarTANKER(x2, y2, c2);
+
+    // Coloca o destruidor (Destroyer)
+    int c3, x3, y3;
+    do {
+        c3 = obterC();
+        x3 = obterX(c3, 3);
+        y3 = obterY(c3, 3);
+    } while (!posicaoValida(x3, y3, c3, 3, 'D'));
+    printarDESTROYER(x3, y3, c3);
+
+    // Coloca o submarino (Submarine)
+    int c4, x4, y4;
+    do {
+        c4 = obterC();
+        x4 = obterX(c4, 2);
+        y4 = obterY(c4, 2);
+    } while (!posicaoValida(x4, y4, c4, 2, 'S'));
+    printarSUBMARINE(x4, y4, c4);
+}
+
+/**
+ * @brief Registra um disparo no tabuleiro do inimigo na posição (x, y).
+ *
+ * Se um navio for atingido, a posição é marcada como 'O' e a vida do inimigo (vidaIN) é incrementada.
+ * Se o disparo não atingir um navio, a posição é marcada como 'X'.
+ *
+ * @param x Coordenada x do disparo.
+ * @param y Coordenada y do disparo.
+ */
 void inimigo::disparo(int x, int y) {
     y = y - 1;
     if (en[y][x] == 'C' || en[y][x] == 'T' || en[y][x] == 'D' || en[y][x] == 'S' || en[y][x] == 'O') {
