@@ -8,7 +8,17 @@
 
 using namespace std;
 
-// Função para printar o navio CARRIER na tela
+/**
+ * @file jogador.cpp
+ * @brief Implementação da classe jogador.
+ */
+/**
+ * @brief Imprime o navio CARRIER na tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::printarCARRIER(int &x, int &y, int c) {
     if (c == 0) {
         gotoxy(x, y); cout << "C";
@@ -24,7 +34,13 @@ void jogador::printarCARRIER(int &x, int &y, int c) {
     }
 }
 
-// Função para apagar o navio CARRIER da tela
+/**
+ * @brief Apaga o navio CARRIER da tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::apagarCARRIER(int &x, int &y, int c) {
     if (c == 0) {
         gotoxy(x, y); cout << " ";
@@ -40,7 +56,13 @@ void jogador::apagarCARRIER(int &x, int &y, int c) {
     }
 }
 
-// Função para mover o navio CARRIER pela tela
+/**
+ * @brief Move o navio CARRIER pela tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::moverCARRIER(int &x, int &y, int c) {
     if (kbhit()) {
         apagarCARRIER(x, y, c);
@@ -65,7 +87,13 @@ void jogador::moverCARRIER(int &x, int &y, int c) {
     }
 }
 
-// Função para printar o navio TANKER na tela
+/**
+ * @brief Imprime o navio TANKER na tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::printarTANKER(int &x, int &y, int c) {
     if (c == 0) {
         gotoxy(x, y); cout << "T";
@@ -79,7 +107,13 @@ void jogador::printarTANKER(int &x, int &y, int c) {
     }
 }
 
-// Função para apagar o navio TANKER da tela
+/**
+ * @brief Apaga o navio TANKER da tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::apagarTANKER(int &x, int &y, int c) {
     if (c == 0) {
         gotoxy(x, y); cout << " ";
@@ -93,7 +127,13 @@ void jogador::apagarTANKER(int &x, int &y, int c) {
     }
 }
 
-// Função para mover o navio TANKER pela tela
+/**
+ * @brief Move o navio TANKER pela tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::moverTANKER(int &x, int &y, int c) {
     if (kbhit()) {
         apagarTANKER(x, y, c);
@@ -118,7 +158,13 @@ void jogador::moverTANKER(int &x, int &y, int c) {
     }
 }
 
-// Função para printar o navio DESTROYER na tela
+/**
+ * @brief Imprime o navio DESTROYER na tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::printarDESTROYER(int &x, int &y, int c) {
     if (c == 0) {
         gotoxy(x, y); cout << "D";
@@ -132,7 +178,13 @@ void jogador::printarDESTROYER(int &x, int &y, int c) {
     }
 }
 
-// Função para apagar o navio DESTROYER da tela
+/**
+ * @brief Apaga o navio DESTROYER da tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::apagarDESTROYER(int &x, int &y, int c) {
     if (c == 0) {
         gotoxy(x, y); cout << " ";
@@ -146,7 +198,13 @@ void jogador::apagarDESTROYER(int &x, int &y, int c) {
     }
 }
 
-// Função para mover o navio DESTROYER pela tela
+/**
+ * @brief Move o navio DESTROYER pela tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::moverDESTROYER(int &x, int &y, int c) {
     if (kbhit()) {
         apagarDESTROYER(x, y, c);
@@ -171,21 +229,39 @@ void jogador::moverDESTROYER(int &x, int &y, int c) {
     }
 }
 
-// Função para printar o navio SUBMARINE na tela
+/**
+ * @brief Imprime o navio SUBMARINE na tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::printarSUBMARINE(int &x, int &y, int c) {
     (void)c; // Marca o parâmetro c como intencionalmente não utilizado
     gotoxy(x, y);
     cout << "S";
 }
 
-// Função para apagar o navio SUBMARINE da tela
+/**
+ * @brief Apaga o navio SUBMARINE da tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::apagarSUBMARINE(int &x, int &y, int c) {
     (void)c; // Marca o parâmetro c como intencionalmente não utilizado
     gotoxy(x, y);
     cout << " ";
 }
 
-// Função para mover o navio SUBMARINE pela tela
+/**
+ * @brief Move o navio SUBMARINE pela tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::moverSUBMARINE(int &x, int &y, int c) {
     if (kbhit()) {
         apagarSUBMARINE(x, y, c);
@@ -210,7 +286,13 @@ void jogador::moverSUBMARINE(int &x, int &y, int c) {
     }
 }
 
-// Função para printar o navio CARRIER permanentemente na matriz JO
+/**
+ * @brief Imprime o navio CARRIER permanentemente na matriz JO.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::printarCARRIER_Permanente(int x, int y, int c) {
     printarCARRIER(x, y, c);
     ca = converterMatriz(y);
@@ -228,7 +310,13 @@ void jogador::printarCARRIER_Permanente(int x, int y, int c) {
     }
 }
 
-// Função para printar o navio TANKER permanentemente na matriz JO
+/**
+ * @brief Imprime o navio TANKER permanentemente na matriz JO.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::pintarTANKER_Permanente(int x, int y, int c) {
     printarTANKER(x, y, c);
     ca = converterMatriz(y);
@@ -244,7 +332,13 @@ void jogador::pintarTANKER_Permanente(int x, int y, int c) {
     }
 }
 
-// Função para printar o navio DESTROYER permanentemente na matriz JO
+/**
+ * @brief Imprime o navio DESTROYER permanentemente na matriz JO.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::printarDESTROYER_Permanente(int x, int y, int c) {
     printarDESTROYER(x, y, c);
     ca = converterMatriz(y);
@@ -260,14 +354,42 @@ void jogador::printarDESTROYER_Permanente(int x, int y, int c) {
     }
 }
 
-// Função para printar o navio SUBMARINE permanentemente na matriz JO
+/**
+ * @brief Imprime o navio SUBMARINE permanentemente na matriz JO.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param c Direção do navio (0 para vertical, 1 para horizontal).
+ */
 void jogador::printarSUBMARINE_Permanente(int x, int y, int c) {
     printarSUBMARINE(x, y, c);
     ca = converterMatriz(y);
     JO[ca][x] = 'S';
 }
 
-// Converte coordenadas da matriz para coordenadas do tabuleiro
+/**
+ * @brief Apaga um navio da tela.
+ * 
+ * @param x Coordenada x do navio.
+ * @param y Coordenada y do navio.
+ * @param cam Direção do navio (0 para vertical, 1 para horizontal).
+ * @param tipo Tipo do navio.
+ */
+void jogador::apagarNavio(int x, int y, int cam, int tipo) {
+    switch(tipo) {
+        case 1: apagarCARRIER(x, y, cam); break;
+        case 2: apagarTANKER(x, y, cam); break;
+        case 3: apagarDESTROYER(x, y, cam); break;
+        case 4: apagarSUBMARINE(x, y, cam); break;
+    }
+}
+
+/**
+ * @brief Converte coordenadas da matriz para coordenadas do tabuleiro.
+ * 
+ * @param y Coordenada na matriz.
+ * @return Coordenada correspondente no tabuleiro.
+ */
 int jogador::converterMatriz(int y) {
     while (true) {
         if (mapa == y) {
@@ -282,7 +404,12 @@ int jogador::converterMatriz(int y) {
     }
 }
 
-// Converte coordenadas do tabuleiro para coordenadas da matriz
+/**
+ * @brief Converte coordenadas do tabuleiro para coordenadas da matriz.
+ * 
+ * @param y Coordenada no tabuleiro.
+ * @return Coordenada correspondente na matriz.
+ */
 int jogador::converterTabuleiro(int y) {
     while (true) {
         if (matriz == y) {
@@ -297,7 +424,9 @@ int jogador::converterTabuleiro(int y) {
     }
 }
 
-// Função para imprimir o tabuleiro do jogador 0
+/**
+ * @brief Imprime o tabuleiro do jogador (JO) na tela.
+ */
 void jogador::printarTabuleiroJO() {
     for (int i = 0; i < 22; i++) {
         cout << endl;
@@ -307,9 +436,11 @@ void jogador::printarTabuleiroJO() {
     }
 }
 
-/*Função para obter uma coordenada aleatória par entre 2 e 20
-Usa a função rand() para gerar números aleatórios até encontrar um número par
-*/
+/**
+ * @brief Obtém uma coordenada aleatória par entre 2 e 20.
+ * 
+ * @return Coordenada aleatória par entre 2 e 20.
+ */
 int jogador::obter() {
     while (true) {
         f = rand() % 19 + 2;
@@ -317,7 +448,11 @@ int jogador::obter() {
     }
 }
 
-// Função da IA para obter coordenadas para um ataque (joagadas aleatórias)
+/**
+ * @brief IA: Obtém coordenadas para jogada automática.
+ * 
+ * @return Coordenada gerada automaticamente.
+ */
 int jogador::IAobter() {
     while (true) {
         x2 = obter();
@@ -343,23 +478,33 @@ int jogador::IAobter() {
     }
 }
 
-// Função da IA para verificar se um ataque atingiu um navio
+/**
+ * @brief IA: Verifica se um ataque atingiu um navio.
+ * 
+ * @param x Coordenada x do ataque.
+ * @param y Coordenada y do ataque.
+ * @return Resultado da verificação.
+ */
 int jogador::IAverificar(int x, int y) {
     if (JO[y][x] == 'C' || JO[y][x] == 'T' || JO[y][x] == 'D' || JO[y][x] == 'S') {
         JO[y][x] = 'O';
         vidaJO = vidaJO + 1;
         return 1;
     }
-    return 0; // Retorno padrão caso nenhuma das condições seja satisfeita
+    return 0;
 }
 
-// Função geral da IA para executar jogadas (alterna entre jogadas aleatórias e jogadas direcionadas)
+/**
+ * @brief IA: Executa jogadas alternando entre jogadas aleatórias e direcionadas.
+ * 
+ * @return Resultado da jogada.
+ */
 int jogador::IAgeneral() {
     if (turno1 == 2) turno = 2;
     if (turno1 == 1) turno = 1;
     if (turno == 1) {
         IAobter();
-        return 0; // Adicionado para garantir retorno em todas as execuções
+        return 0;
     }
 
     if (turno == 2) {
@@ -368,13 +513,18 @@ int jogador::IAgeneral() {
         if (ver == 2) {
             IAobter();
             turno1 = 1;
-            return 0; // Adicionado para garantir retorno em todas as execuções
+            return 0;
         }
     }
-    return 0; // Retorno padrão para garantir que todas as execuções retornem um valor
+    return 0;
 }
 
-// Função da IA para definir a dificuldade (jogadas direcionadas)
+/**
+ * @brief IA: Define a dificuldade da jogada.
+ * 
+ * @param A Dificuldade da jogada.
+ * @return Resultado da definição de dificuldade.
+ */
 int jogador::IAdificuldade(char A) {
     do {
         for (int i = 2; i < 21; i++) {
@@ -389,4 +539,24 @@ int jogador::IAdificuldade(char A) {
         }
         return 2;
     } while (r == 1);
+}
+
+/**
+ * @brief Registra um disparo no tabuleiro do jogador na posição (x, y).
+ * 
+ * @param x Coordenada x do disparo.
+ * @param y Coordenada y do disparo.
+ */
+void jogador::disparo(int x, int y) {
+    y = y - 1;
+    if (JO[y][x] == 'C' || JO[y][x] == 'T' || JO[y][x] == 'D' || JO[y][x] == 'S' || JO[y][x] == 'O') {
+        JO[y][x] = 'O';
+        y = y + 1;
+        gotoxy(x, y); std::cout << "O";
+        vidaJO = vidaJO + 1;
+    } else {
+        JO[y][x] = 'X';
+        y = y + 1;
+        gotoxy(x, y); std::cout << "X";
+    }
 }
