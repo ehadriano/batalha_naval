@@ -5,8 +5,17 @@
 
 using namespace std;
 
+/**
+ * @file menu.cpp
+ * @brief Implementação da classe menu.
+ */
+/**
+ * @brief Exibe a tela inicial do jogo.
+ *
+ * Mostra a tela de abertura com uma animação de carregamento e créditos dos criadores.
+ */
 void menu::TELA_INICIAL() {
-    char portada[20][100] = {
+    char tela[20][100] = {
         "                                                                                                 ",
         "   aaaaaaaaa         aaa    aaaaaaaaaaa    aaa        aaa        aaa      aaa        aaa         ",
         "   aaa    aaa       aaaaa       aaa       aaaaa       aaa        aaa      aaa       aaaaa        ",
@@ -27,12 +36,11 @@ void menu::TELA_INICIAL() {
         "                aaa    aaaaa    aaa       aaa   aaaaa   aaa       aaa    aaaaaaaaaaaa            ",
         "                aaa     aaaa   aaa         aaa   aaa   aaa         aaa   aaaaaaaaaaaa            ",
         "                                                                                                 ",
-
     };
     system("cls");
     for (int j = 0; j < 100; j++) {
         for (int i = 0; i < 20; i++) {
-            gotoxy(j + 5, i + 5); printf("%c", portada[i][j]);
+            gotoxy(j + 5, i + 5); printf("%c", tela[i][j]);
         }
     }
     
@@ -60,8 +68,13 @@ void menu::TELA_INICIAL() {
     getch();
 }
 
+/**
+ * @brief Exibe as instruções do jogo.
+ *
+ * Mostra um layout de teclas para os controles do jogo, incluindo teclas de movimento e ações.
+ */
 void menu::INSTRUCOES() {
-    char movimiento[11][76] = {
+    char movimento[11][76] = {
         "          SETINHAS                                                         ",
         "           ______                                                          ",
         "          |      |                                                         ",
@@ -76,14 +89,19 @@ void menu::INSTRUCOES() {
 
     for (int j = 0; j < 76; j++) {
         for (int i = 0; i < 11; i++) {
-            gotoxy(j + 22, i + 5); printf("%c", movimiento[i][j]);
+            gotoxy(j + 22, i + 5); printf("%c", movimento[i][j]);
         }
     }
     getch();
 }
 
+/**
+ * @brief Exibe o objetivo do jogo.
+ *
+ * Mostra uma explicação sobre como jogar e o objetivo principal do jogo, que é afundar os navios inimigos.
+ */
 void menu::OBJETIVO() {
-    char mision[10][80] = {
+    char missao[10][80] = {
         "1. Objetivo do jogo:                                                  ",
         "Afundar os navios inimigos antes que ele afunde os seus.              ",
         "Cada jogador tem um Tabuleiro 10x10.                                  ",
@@ -98,7 +116,7 @@ void menu::OBJETIVO() {
     gotoxy(45, 32);
     for (int j = 0; j < 80; j++) {
         for (int i = 0; i < 10; i++) {
-            gotoxy(j + 5, i + 5); printf("%c", mision[i][j]);
+            gotoxy(j + 5, i + 5); printf("%c", missao[i][j]);
         }
     }
     getch();
